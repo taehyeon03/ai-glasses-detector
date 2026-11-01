@@ -1,0 +1,12 @@
+data/
+datasets/
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.engine
+*.onnx
+*.pt
+runs/
+__pycache__/
+.venv/
