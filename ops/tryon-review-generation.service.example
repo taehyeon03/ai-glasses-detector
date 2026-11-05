@@ -1,0 +1,15 @@
+[Unit]
+Description=Camera glasses generation
+After=network-online.target
+
+[Service]
+WorkingDirectory=%h/ai-glasses-detector
+EnvironmentFile=%h/.config/ai-glasses/runtime.env
+Environment=PYTORCH_ALLOC_CONF=expandable_segments:True
+ExecStart=%h/ai-glasses-detector/ops/run generation.review_generation_worker
+Restart=on-failure
+TimeoutStopSec=180
+UMask=0077
+
+[Install]
+WantedBy=default.target

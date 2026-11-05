@@ -10,3 +10,25 @@ datasets/
 runs/
 __pycache__/
 .venv/
+
+# Local inputs, runtime state, and output artifacts
+/work/
+/outputs/
+/.codex-attachments/
+/.env
+/.env.*
+runtime.env
+*.sqlite*
+*.db
+*.log
+*.zip
+*.tar
+*.gz
+*.safetensors
+*.pth
+*.webp
+*.csv
+*.jsonl
+*.egg-info/
+build/
+dist/
