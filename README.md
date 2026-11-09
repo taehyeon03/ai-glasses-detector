@@ -8,4 +8,6 @@
 
 요구계획서: [docs/requirements.md](docs/requirements.md)
 
+현재 학습 상태와 발표 반영 기준: [docs/training-status.md](docs/training-status.md)
+
 > 판정은 감독관 보조용이다. 크롤링 이미지·얼굴 데이터는 이 저장소에 올리지 않는다.
