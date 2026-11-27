@@ -27,6 +27,18 @@ class PartTests(unittest.TestCase):
         _,weights=network.forward_with_weights(image,parts,quality,valid)
         torch.testing.assert_close(weights,torch.tensor([[.5,0,.5],[.5,0,.5]]))
 
+    def test_global_control_accepts_training_call_without_part_inputs(self):
+        from pipeline.proposed_train import call
+        network=PartEvidenceNet("matched_global",pretrained=False).train()
+        image,parts,quality,valid=self.inputs()
+        logits=call(network,{"global":image},torch.arange(2))
+        nn.functional.cross_entropy(logits,torch.tensor([0,1])).backward()
+        self.assertEqual(tuple(logits.shape),(2,2))
+        self.assertIsNotNone(network.features[0][0].weight.grad)
+        network.eval()
+        with torch.no_grad():
+            torch.testing.assert_close(network(image),network(image,parts,quality,valid))
+
     def test_shared_backbone_receives_gradients_with_bn_statistics_frozen(self):
         network=PartEvidenceNet("parts_gate",pretrained=False).train()
         logits=network(*self.inputs())

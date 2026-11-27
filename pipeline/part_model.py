@@ -33,7 +33,7 @@ class PartEvidenceNet(nn.Module):
     def forward_with_weights(self,global_image,parts,quality,valid):
         global_features=self.encode(global_image)
         if self.mode=="matched_global":
-            weights=torch.zeros_like(valid)
+            weights=global_features.new_zeros((global_image.shape[0],3))
             local_features=torch.zeros_like(global_features)
         else:
             n=global_image.shape[0]
@@ -51,7 +51,7 @@ class PartEvidenceNet(nn.Module):
             local_features=(local*weights[:,:,None]).sum(1)
         return self.classifier(torch.cat([global_features,local_features],dim=1)),weights
 
-    def forward(self,global_image,parts,quality,valid):
+    def forward(self,global_image,parts=None,quality=None,valid=None):
         return self.forward_with_weights(global_image,parts,quality,valid)[0]
 
 
