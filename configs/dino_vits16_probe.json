@@ -1,0 +1,22 @@
+{
+  "experiment_id": "dino-vits16-probe-ig-20261127",
+  "dataset_id": "KTH03/camera-glasses-research-20261127",
+  "dataset_revision": "0d8cef1decdbd80bcce5aacd6f36a093c71af3cc",
+  "dataset_root": "/home/kth/.local/share/ai-glasses-datasets/20261127-v1",
+  "image_cache": "/mnt/data/ai-glasses-research/cache",
+  "hub_repo": "facebookresearch/dino:7c446df5b9f45747937fb0d72314eb9f7b66930a",
+  "encoder": "dino_vits16",
+  "image_size": 224,
+  "image_batch_size": 64,
+  "feature_batch_size": 256,
+  "workers": 4,
+  "epochs": 30,
+  "lr": 0.001,
+  "weight_decay": 0.01,
+  "seed": 42,
+  "device": "cuda",
+  "explain": true,
+  "explanation_samples": 8,
+  "ig_steps": 32,
+  "random_mask_repeats": 10
+}
