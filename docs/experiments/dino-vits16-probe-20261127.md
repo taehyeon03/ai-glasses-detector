@@ -39,7 +39,13 @@ DINO ViT-S/16의 파라미터는 동결한다.
 설명할 점수는 예측한 클래스의 logit에서 다른 클래스의 logit을 뺀 값이다.
 이미지 평균에 해당하는 기준 입력을 사용한다.
 흐리게 만든 기준 입력도 비교한다.
-적분에는 사다리꼴 근사를 사용한다.
+최초 실행은 사다리꼴 근사를 사용했다.
+단색 기준 입력에서는 큰 적분 오차가 관측됐다.
+최초 그림을 신뢰할 수 있는 기여도로 해석하지 않는다.
+후속 분석은 Gauss-Legendre 구적법을 사용한다.
+오차가 기준을 넘으면 계산점을 최대 512개로 늘린다.
+오차 기준은 `absolute_error / max(abs(score_delta), 1) <= 0.02`다.
+기준을 넘긴 그림은 reliable=false로 기록한다.
 근사 오차는 completeness 차이로 기록한다.
 기준 입력이 바뀔 때 상위 영역이 유지되는지도 기록한다.
 
@@ -71,3 +77,15 @@ python -m pipeline.probe --config configs/dino_vits16_probe.json --run /mnt/data
 ```
 
 실행 결과는 완료 후 이 문서에 추가한다.
+
+학습을 반복하지 않고 기여도를 다시 계산할 수 있다.
+다음 명령은 같은 체크포인트를 사용한다.
+테스트 데이터는 다시 읽지 않는다.
+
+```bash
+python -m pipeline.explain_checkpoint --training-run /mnt/data/ai-glasses-research/runs/dino-vits16-probe-20261127-s42 --analysis-dir /mnt/data/ai-glasses-research/runs/dino-vits16-probe-20261127-s42/analysis-gauss-v2
+```
+
+기여도만 다시 계산한 실행은 `checkpoint_analysis`로 기록한다.
+학습 지표는 원래 실행을 참조한다.
+새로 학습하거나 테스트했다고 기록하지 않는다.

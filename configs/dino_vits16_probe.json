@@ -18,5 +18,7 @@
   "explain": true,
   "explanation_samples": 8,
   "ig_steps": 32,
+  "ig_max_steps": 512,
+  "ig_tolerance": 0.02,
   "random_mask_repeats": 10
 }

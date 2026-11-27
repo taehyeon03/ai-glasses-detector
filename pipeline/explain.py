@@ -1,5 +1,6 @@
 """Task attribution and controlled occlusion on validation images only."""
 import json
+from functools import lru_cache
 from pathlib import Path
 
 import matplotlib
@@ -14,17 +15,38 @@ from pipeline.probe import transform
 from pipeline.records import append_jsonl, write_json
 
 
+@lru_cache(maxsize=16)
+def quadrature(steps):
+    nodes, weights = np.polynomial.legendre.leggauss(steps)
+    return (nodes + 1) / 2, weights / 2
+
+
 def integrated_gradients(score, image, baseline, steps):
     gradient = torch.zeros_like(image)
-    for step in range(steps + 1):
-        point = (baseline + (image - baseline) * step / steps).detach().requires_grad_(True)
+    nodes, weights = quadrature(steps)
+    for alpha, weight in zip(nodes, weights):
+        point = (baseline + (image - baseline) * float(alpha)).detach().requires_grad_(True)
         derivative = torch.autograd.grad(score(point).sum(), point)[0]
-        gradient += derivative * (0.5 if step in (0, steps) else 1.0)
-    attribution = (image - baseline) * gradient / steps
+        gradient += derivative * float(weight)
+    attribution = (image - baseline) * gradient
     with torch.no_grad():
         delta = (score(image) - score(baseline)).item()
-    return attribution.detach(), dict(score_delta=delta, attribution_sum=attribution.sum().item(),
+    return attribution.detach(), dict(integration="gauss_legendre", steps=steps,
+        score_delta=delta, attribution_sum=attribution.sum().item(),
         completeness_absolute_error=abs(delta - attribution.sum().item()))
+
+
+def converged_attribution(score, image, baseline, config):
+    steps = config["ig_steps"]
+    attempts = []
+    while True:
+        attribution, result = integrated_gradients(score, image, baseline, steps)
+        error = result["completeness_absolute_error"] / max(abs(result["score_delta"]), 1.0)
+        attempts.append(dict(steps=steps, scaled_error=error))
+        reliable = error <= config.get("ig_tolerance", 0.02)
+        if reliable or steps >= config.get("ig_max_steps", steps):
+            return attribution, dict(**result, scaled_error=error, reliable=reliable, attempts=attempts)
+        steps = min(steps * 2, config["ig_max_steps"])
 
 
 def patch_map(attribution, patch=16):
@@ -84,12 +106,12 @@ def explain(encoder, head, rows, config, run, device):
         maps = {}
         for name, baseline in [("mean", torch.zeros_like(image)),
                                ("blur", GaussianBlur(31, sigma=10)(image))]:
-            attribution, completeness = integrated_gradients(margin, image, baseline, config["ig_steps"])
+            attribution, completeness = converged_attribution(margin, image, baseline, config)
             heat = patch_map(attribution).flatten()
             maps[name] = heat
             append_jsonl(destination / "attribution.jsonl", dict(sample_id=row["sample_id"],
                 target_class=target, score="target logit minus other logit", baseline=name,
-                steps=config["ig_steps"], **completeness))
+                **completeness))
             np.savez_compressed(destination / f"sample-{index}-{name}.npz",
                                 signed_ig=attribution.cpu().numpy(), patch_contributions=heat.cpu().numpy())
             ax = axes.flat[1 if name == "mean" else 2]
@@ -98,7 +120,7 @@ def explain(encoder, head, rows, config, run, device):
                 size=image.shape[-2:], mode="nearest")[0, 0].cpu().numpy()
             bound = max(float(np.abs(heatmap).max()), 1e-9)
             ax.imshow(heatmap, cmap="bwr", vmin=-bound, vmax=bound, alpha=0.55)
-            ax.set_title(f"IG ({name}); red supports class {target}")
+            ax.set_title(f"IG ({name}); class {target}; valid={completeness['reliable']}")
             for fraction in [0.05, 0.10, 0.20]:
                 count = max(1, round(len(heat) * fraction))
                 top = heat.topk(count).indices.tolist()
@@ -110,6 +132,7 @@ def explain(encoder, head, rows, config, run, device):
                         random_drops.append(original_margin - margin(mask_patches(image, baseline, indices, 16)).item())
                 append_jsonl(destination / "occlusion.jsonl", dict(sample_id=row["sample_id"],
                     truth=row["label"], target_class=target, baseline=name,
+                    attribution_reliable=completeness["reliable"],
                     masked_patches=count, total_patches=len(heat), fraction=count / len(heat),
                     original_margin=original_margin, top_margin_drop=original_margin - masked_margin,
                     random_margin_drop_mean=float(np.mean(random_drops)),
