@@ -10,3 +10,9 @@ datasets/
 runs/
 __pycache__/
 .venv/
+*.pth
+*.npz
+*.npy
+*.parquet
+*.log
+cache/
