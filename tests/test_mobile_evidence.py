@@ -3,7 +3,7 @@ import unittest
 import torch
 from torch import nn
 
-from pipeline.mobile_evidence import gradcam, select_cases
+from pipeline.mobile_evidence import add_bridge_region, gradcam, select_cases
 
 
 class LinearSpatialModel(nn.Module):
@@ -22,6 +22,16 @@ class LinearSpatialModel(nn.Module):
 
 
 class EvidenceTests(unittest.TestCase):
+    def test_bridge_region_does_not_change_the_training_geometry(self):
+        geometry = dict(landmarks=[[80,100],[140,100],[110,130],[90,150],[130,150]],
+                        regions={"glasses":[40,60,180,130]})
+        augmented = add_bridge_region(geometry)
+        self.assertNotIn("bridge",geometry["regions"])
+        self.assertIn("bridge",augmented["regions"])
+        x0,y0,x1,y1 = augmented["regions"]["bridge"]
+        self.assertTrue(x0 < 110 < x1)
+        self.assertTrue(y0 < 89.2 < y1)
+
     def test_cam_matches_known_linear_spatial_contributions(self):
         network = LinearSpatialModel().eval().requires_grad_(False)
         images = torch.arange(48.).reshape(1,3,4,4)
