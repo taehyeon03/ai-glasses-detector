@@ -24,6 +24,8 @@ Nano에서는 최종 추론을 시험한다.
 동결한 encoder의 attention은 분류기 학습으로 변하지 않는다.
 분류 점수에 대한 설명은 별도 분석으로 추가한다.
 설정의 `explain`을 사용하려면 해당 브랜치에 `pipeline/explain.py`가 있어야 한다.
+완료 후 `python scripts/validate_run.py RUN_DIRECTORY`로 필수 기록을 확인한다.
+검사를 통과한 사실도 실험 문서에 남긴다.
 
 ## 발표를 위한 실험 문서
 
