@@ -1,0 +1,5 @@
+# Laptop capture and CPU evaluation. This environment does not require PyTorch.
+numpy>=1.24
+Pillow>=10
+opencv-python==5.1.0.95
+onnxruntime>=1.17

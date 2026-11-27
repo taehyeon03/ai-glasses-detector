@@ -31,7 +31,8 @@ def validate(root):
             raise ValueError("Class order changed")
         if sum(map(sum, cm)) != row["n"]:
             raise ValueError("Confusion matrix support does not match sample count")
-    expected = set(range(1, provenance["config"]["epochs"] + 1))
+    evaluation_only = provenance["config"].get("evaluation_only",False)
+    expected = {0} if evaluation_only else set(range(1, provenance["config"]["epochs"] + 1))
     for split in ["train", "validation"]:
         items = [v for v in rows if v["split"] == split]
         if {v["epoch"] for v in items} != expected or len(items) != len(expected):
@@ -47,10 +48,11 @@ def validate(root):
             raise ValueError(f"Missing per-image predictions: {split}")
         if not (root / f"{split}-confusion.png").is_file():
             raise ValueError(f"Missing confusion figure: {split}")
-    for file in ["pip-freeze.txt", "learning_curves.png", "data-audit.json"]:
+    figure = "evaluation.png" if evaluation_only else "learning_curves.png"
+    for file in ["pip-freeze.txt", figure, "data-audit.json"]:
         if not (root / file).is_file():
             raise ValueError(f"Missing artifact: {file}")
-    return dict(valid=True, epochs=len(expected), test_evaluations=len(tests),
+    return dict(valid=True, epochs=0 if evaluation_only else len(expected), test_evaluations=len(tests),
                 jetson_validation=summary["jetson_validation"])
 
 
