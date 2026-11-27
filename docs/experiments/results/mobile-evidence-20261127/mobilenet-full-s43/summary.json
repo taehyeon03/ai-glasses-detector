@@ -1,0 +1,117 @@
+{
+  "best_epoch": 6,
+  "threshold": 0.5,
+  "selection": "validation macro-F1; ties: lower FPR, then lower loss",
+  "final": {
+    "train": {
+      "n": 7000,
+      "loss": 0.04281295835971832,
+      "accuracy": 0.9844285714285714,
+      "macro_f1": 0.9844273100406847,
+      "confusion_matrix": [
+        [
+          3414,
+          86
+        ],
+        [
+          23,
+          3477
+        ]
+      ],
+      "class_order": [
+        "ordinary_glasses",
+        "camera_glasses"
+      ],
+      "per_class": {
+        "ordinary_glasses": {
+          "precision": 0.9933081175443701,
+          "recall": 0.9754285714285714,
+          "f1": 0.9842871558310509,
+          "support": 3500
+        },
+        "camera_glasses": {
+          "precision": 0.9758630367667696,
+          "recall": 0.9934285714285714,
+          "f1": 0.9845674642503186,
+          "support": 3500
+        }
+      },
+      "false_positive_rate": 0.02457142857142857,
+      "camera_recall": 0.9934285714285714
+    },
+    "validation": {
+      "n": 1500,
+      "loss": 0.08560298383235931,
+      "accuracy": 0.972,
+      "macro_f1": 0.9719982078853047,
+      "confusion_matrix": [
+        [
+          735,
+          15
+        ],
+        [
+          27,
+          723
+        ]
+      ],
+      "class_order": [
+        "ordinary_glasses",
+        "camera_glasses"
+      ],
+      "per_class": {
+        "ordinary_glasses": {
+          "precision": 0.9645669291338582,
+          "recall": 0.98,
+          "f1": 0.9722222222222221,
+          "support": 750
+        },
+        "camera_glasses": {
+          "precision": 0.9796747967479674,
+          "recall": 0.964,
+          "f1": 0.9717741935483871,
+          "support": 750
+        }
+      },
+      "false_positive_rate": 0.02,
+      "camera_recall": 0.964
+    },
+    "test": {
+      "n": 1500,
+      "loss": 0.15009991824626923,
+      "accuracy": 0.9526666666666667,
+      "macro_f1": 0.9526408822581183,
+      "confusion_matrix": [
+        [
+          732,
+          18
+        ],
+        [
+          53,
+          697
+        ]
+      ],
+      "class_order": [
+        "ordinary_glasses",
+        "camera_glasses"
+      ],
+      "per_class": {
+        "ordinary_glasses": {
+          "precision": 0.932484076433121,
+          "recall": 0.976,
+          "f1": 0.9537459283387623,
+          "support": 750
+        },
+        "camera_glasses": {
+          "precision": 0.9748251748251748,
+          "recall": 0.9293333333333333,
+          "f1": 0.9515358361774744,
+          "support": 750
+        }
+      },
+      "false_positive_rate": 0.024,
+      "camera_recall": 0.9293333333333333
+    }
+  },
+  "checkpoint_sha256": "12f807460cd7c95f10f1e838eb9a030a69fe6c08e8234051d554f9fc4021a2be",
+  "jetson_validation": "pending"
+}

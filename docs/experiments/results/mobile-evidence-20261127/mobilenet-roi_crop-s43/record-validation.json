@@ -1,0 +1,6 @@
+{
+  "valid": true,
+  "epochs": 20,
+  "test_evaluations": 1,
+  "jetson_validation": "pending"
+}
