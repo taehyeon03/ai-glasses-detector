@@ -17,13 +17,13 @@ PPTX 자체는 공개 저장소에 복사하지 않는다.
 
 | 순서 | 자료의 위치 | 추가할 비교 | 상태 |
 | --- | --- | --- | --- |
-| 1 | 35장과 48장 A2 | 단일 문장을 사용하는 제로샷과 프롬프트 앙상블을 비교한다. | 다음 단계로 구현한다. |
-| 2 | 35장과 48장 A3 | Tip-Adapter로 소량의 학습 예시를 결합한다. | 다음 단계로 구현한다. |
-| 3 | 35장과 48장 A4 | 클래스마다 1장과 4장 및 16장과 64장을 사용하는 조건을 비교한다. | 같은 예시 선택으로 반복한다. |
+| 1 | 35장과 48장 A2 | 단일 문장을 사용하는 제로샷과 프롬프트 앙상블을 비교한다. | 구현했다. 현재 실험 뒤에 실행하도록 대기 중이다. |
+| 2 | 35장과 48장 A3 | Tip-Adapter로 소량의 학습 예시를 결합한다. | 구현했다. 현재 실험 뒤에 실행하도록 대기 중이다. |
+| 3 | 35장과 48장 A4 | 클래스마다 1장과 4장 및 16장과 64장을 사용하는 조건을 비교한다. | 구현했다. 세 seed에서 같은 예시를 유지하며 수를 늘린다. |
 | 4 | 33장과 38장 및 48장 A1 | YOLOE로 안경을 찾은 결과와 현재 crop을 비교한다. | 검출기와 박스 정답을 준비해야 한다. |
 | 5 | 48장 A3 | CoOp와 LoRA를 별도 적응 조건으로 비교한다. | 후속 실험으로 둔다. |
 | 6 | 48장 A5 | 닮은 일반 안경의 포함 여부를 비교한다. | 현재 릴리스에서 해당 제품을 확인해야 한다. |
-| 7 | 46장과 48장 A6 | FP32에서 ONNX로 바꾼 결과를 확인한다. | 현재 모델의 변환부터 준비한다. |
+| 7 | 46장과 48장 A6 | FP32에서 ONNX로 바꾼 결과를 확인한다. | MobileCLIP의 임시 기준 모델에서 PC 변환 검사를 통과했다. |
 | 8 | 38장과 46장 | 실제 Nano에서 TensorRT FP16을 측정한다. | 보드에서 검증해야 한다. |
 
 이 표에서 계획을 완료한 결과로 표시하지 않는다.
@@ -82,6 +82,47 @@ epoch가 있었다고 기록하지 않는다.
 큰 교사의 출력을 미리 계산하는 방법은 경량 학생을 학습할 때 검토할 수 있다.
 교사의 검증 성능과 부위별 오류를 먼저 확인해야 한다.
 카메라를 잘못 보는 교사의 출력을 그대로 강요하지 않는다.
+
+## 실행을 등록한 상태
+
+2026년 11월 27일 16시 43분 KST에 상태를 확인했다.
+현재 proposed 실험은 계속 학습 중이다.
+후속 실행은 `glasses-presentation-adaptation-20261127.service`에서 대기한다.
+이 실행은 서버에서 동작한다.
+SSH 연결이 끊어져도 실행은 유지된다.
+proposed 실행 15개의 공통 기록 검사가 통과해야 다음 단계가 시작된다.
+앞 단계가 실패하면 후속 실행도 실패 상태를 남긴다.
+완료되지 않은 결과를 표에 채우지 않는다.
+
+후속 실행은 `48547d7`의 코드를 사용한다.
+소스 경로는 `/mnt/data/ai-glasses-research/repo-presentation`이다.
+결과 경로는 `/mnt/data/ai-glasses-research/runs/presentation-adaptation-20261127`이다.
+로그 경로는 `/mnt/data/ai-glasses-research/presentation-adaptation-20261127.log`다.
+대기 상태는 결과 폴더의 `queue-status.json`에 저장한다.
+비교 조건은 제로샷 2개와 Tip-Adapter 12개다.
+
+```bash
+python -m scripts.run_presentation_after_study \
+  --parent-unit glasses-proposed-study-20261127.service \
+  --parent-runs /mnt/data/ai-glasses-research/runs/proposed-evidence-20261127 \
+  --config configs/proposed_evidence.json \
+  --runs /mnt/data/ai-glasses-research/runs/presentation-adaptation-20261127
+```
+
+## ONNX 변환에서 확인한 범위
+
+`mobileclip_finetune-s42`를 임시 기준 모델로 변환했다.
+전체 비교에서 최종 선택한 모델이라는 뜻은 아니다.
+동적 batch를 사용하는 변환은 실패했다.
+실패한 실행의 로그와 상태 파일은 보존했다.
+batch를 1로 고정한 ONNX 변환은 성공했다.
+검증 사진 5장에서 PyTorch와 ONNX의 분류 결과가 같았다.
+logit의 최대 절대 오차는 약 0.00000155였다.
+별도의 로컬 환경에서도 PyTorch를 설치하지 않고 사진 1장의 추론을 확인했다.
+웹캠을 열거나 사진을 촬영하지 않았다.
+이 검사는 실제 촬영 환경의 성능 평가가 아니다.
+이 검사는 Jetson의 TensorRT 호환성 검증도 아니다.
+Nano에서의 변환과 메모리 및 지연 측정은 pending이다.
 
 ## 참고한 공식 구현
 
