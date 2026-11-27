@@ -63,6 +63,8 @@ def main():
             try:
                 if not capture.isOpened():
                     raise RuntimeError("Cannot open camera")
+                capture.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
+                capture.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
                 ok, bgr = capture.read()
                 if not ok:
                     raise RuntimeError("Cannot read camera")
@@ -121,6 +123,7 @@ def main():
             state["worker"].join(timeout=2)
         state["latest"] = None
         recorder.flush()
+        progress.set("카메라를 중지했습니다. 완료되지 않은 검사는 미완료로 기록합니다.")
         preview.configure(image="", text="카메라 꺼짐")
         state["photo"] = None
         verdict.configure(text="카메라를 중지했습니다", fg="#555555")
