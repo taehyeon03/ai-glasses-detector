@@ -18,6 +18,7 @@ from PIL import Image, ImageDraw
 from torchvision.transforms.functional import gaussian_blur
 
 from pipeline.mobile_train import model, normalize
+from pipeline.mobile_data import clip_box
 from pipeline.records import append_jsonl, metrics, provenance, sha256, write_json
 
 
@@ -60,6 +61,18 @@ def region_values(cam, geometry, size):
         result[name] = dict(positive_mass_fraction=mass, area_fraction=fraction,
                             enrichment=mass/fraction)
     return dict(positive_mass=total, regions=result)
+
+
+def add_bridge_region(geometry, size=224):
+    if geometry is None:
+        return None
+    updated = json.loads(json.dumps(geometry))
+    eyes = np.asarray(geometry["landmarks"][:2])
+    distance = float(np.linalg.norm(eyes[1]-eyes[0]))
+    center = eyes.mean(0) + np.array([0., -.18*distance])
+    updated["regions"]["bridge"] = clip_box([center[0]-.22*distance,center[1]-.28*distance,
+                                               center[0]+.22*distance,center[1]+.28*distance],size)
+    return updated
 
 
 def select_cases(rows, predictions, count, seed=20261127):
@@ -196,7 +209,8 @@ def occlusion(network, images, rows, predictions, selected, config, output):
 
 def analyse(config, runs, output):
     metadata = json.loads((Path(config["view_cache"])/"metadata.json").read_text())
-    rows = [r for r in metadata["rows"] if r["split"]=="validation"]
+    rows = [dict(r,geometry=add_bridge_region(r["geometry"],config["image_size"]))
+            for r in metadata["rows"] if r["split"]=="validation"]
     all_rows = metadata["rows"]
     indices = [i for i,r in enumerate(all_rows) if r["split"]=="validation"]
     full = np.load(Path(config["view_cache"])/"full.npy", mmap_mode="r")
