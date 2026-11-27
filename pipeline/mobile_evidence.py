@@ -135,8 +135,6 @@ def occlusion(network, images, rows, predictions, selected, config, output):
     size = config["image_size"]
     for step, index in enumerate(selected):
         original = normalize(images[index:index+1])
-        logits = network(original)
-        original_margin = (logits[0,1]-logits[0,0]).item()
         geometry = rows[index]["geometry"]
         region_names, rectangles, layout = [], [], []
         for name, box in geometry["regions"].items():
@@ -152,6 +150,13 @@ def occlusion(network, images, rows, predictions, selected, config, output):
         masks = torch.zeros(len(rectangles),1,size,size,dtype=torch.bool,device=images.device)
         for i,(x0,y0,x1,y1) in enumerate(rectangles):
             masks[i,:,y0:y1,x0:x1] = True
+        reference_margins = []
+        for begin in range(0,len(rectangles),config["eval_batch_size"]):
+            count = min(config["eval_batch_size"],len(rectangles)-begin)
+            reference = network(original.expand(count,-1,-1,-1).contiguous())
+            reference_margins.append(reference[:,1]-reference[:,0])
+        reference_margins = torch.cat(reference_margins).cpu().numpy()
+        original_margin = float(reference_margins[0])
         for baseline_name, baseline in [("mean", torch.zeros_like(original)),
                                          ("blur", gaussian_blur(original,[31,31],[10,10]))]:
             perturbed = torch.where(masks, baseline, original)
@@ -159,7 +164,7 @@ def occlusion(network, images, rows, predictions, selected, config, output):
             for batch in perturbed.split(config["eval_batch_size"]):
                 scores = network(batch)
                 margins.append(scores[:,1]-scores[:,0])
-            drops = original_margin-torch.cat(margins).cpu().numpy()
+            drops = reference_margins-torch.cat(margins).cpu().numpy()
             true_sign = 2*rows[index]["label"]-1
             for name,start,end in layout:
                 random_drops = drops[start+1:end]
@@ -173,6 +178,7 @@ def occlusion(network, images, rows, predictions, selected, config, output):
                     random_true_margin_drop_mean=float(true_sign*random_drops.mean()),
                     random_camera_margin_drop_std=float(random_drops.std()),
                     random_camera_margin_drops=random_drops.tolist(),
+                    matched_reference_batch_size=len(rectangles),
                     area_pixels=int(masks[start].sum().item()))
                 append_jsonl(output / "occlusion.jsonl", record)
                 all_records.append(record)
@@ -208,8 +214,9 @@ def analyse(config, runs, output):
         candidates.append((result["macro_f1"],-result["false_positive_rate"],-result["loss"],seed))
         arrays = {layer: [] for layer in config["gradcam_layers"]}
         probabilities = []
-        for begin in range(0,len(rows),32):
-            logits, cams = gradcam(network,normalize(images[begin:begin+32]),config["gradcam_layers"])
+        for begin in range(0,len(rows),config["eval_batch_size"]):
+            batch = images[begin:begin+config["eval_batch_size"]]
+            logits, cams = gradcam(network,normalize(batch),config["gradcam_layers"])
             probabilities.extend(logits.softmax(1)[:,1].tolist())
             for layer, cam in cams.items():
                 arrays[layer].append(cam.cpu().numpy())
