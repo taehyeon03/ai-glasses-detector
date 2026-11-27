@@ -1,0 +1,51 @@
+{
+  "validation_images_per_seed": 1500,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "layers": [
+    8,
+    12
+  ],
+  "explained_image_model_pairs": 4500,
+  "selected_seed": 43,
+  "seed_stability": [
+    {
+      "seeds": [
+        42,
+        43
+      ],
+      "n_valid": 1500,
+      "n_excluded": 0,
+      "top10_overlap_mean": 0.5956,
+      "pearson_mean": 0.7604106906057901
+    },
+    {
+      "seeds": [
+        42,
+        44
+      ],
+      "n_valid": 1500,
+      "n_excluded": 0,
+      "top10_overlap_mean": 0.5571666666666667,
+      "pearson_mean": 0.7243395414514077
+    },
+    {
+      "seeds": [
+        43,
+        44
+      ],
+      "n_valid": 1500,
+      "n_excluded": 0,
+      "top10_overlap_mean": 0.5683,
+      "pearson_mean": 0.7326232084720307
+    }
+  ],
+  "occlusion_images": 300,
+  "geometry_missing_validation": 90,
+  "exact_camera_annotations": "pending",
+  "manual_geometry_review": "pending",
+  "jetson_validation": "pending"
+}

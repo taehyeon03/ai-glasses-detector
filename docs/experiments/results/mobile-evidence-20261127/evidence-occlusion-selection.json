@@ -1,0 +1,7 @@
+{
+  "n": 300,
+  "seed": 20261127,
+  "policy": "balanced classes; round-robin across product and prediction strata; no CAM selection",
+  "products": 77,
+  "annotation_status": "automatic geometry; review pending"
+}

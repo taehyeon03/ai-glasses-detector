@@ -1,0 +1,542 @@
+[
+  {
+    "seed": 42,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "glasses",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.19763293164802684,
+    "enrichment_mean": 1.6068956891575779
+  },
+  {
+    "seed": 42,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_left",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.04855129465933938,
+    "enrichment_mean": 2.1124949423285684
+  },
+  {
+    "seed": 42,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_right",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.04592315268711747,
+    "enrichment_mean": 2.036847954555028
+  },
+  {
+    "seed": 42,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_left",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.018052881613232635,
+    "enrichment_mean": 1.3553426150730787
+  },
+  {
+    "seed": 42,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_right",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.017351639565892852,
+    "enrichment_mean": 1.3769915646908542
+  },
+  {
+    "seed": 42,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lower_face",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.0066060810460070955,
+    "enrichment_mean": 0.35888113176924524
+  },
+  {
+    "seed": 42,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "forehead",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.03155685917603401,
+    "enrichment_mean": 1.7980782945931548
+  },
+  {
+    "seed": 42,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "background_corner",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.005777092696714762,
+    "enrichment_mean": 0.7392508842770472
+  },
+  {
+    "seed": 42,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "bridge",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.028060844452448403,
+    "enrichment_mean": 2.200399978142962
+  },
+  {
+    "seed": 42,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "glasses",
+    "n": 1343,
+    "positive_mass_fraction_mean": 0.39035150927410206,
+    "enrichment_mean": 3.19385350218335
+  },
+  {
+    "seed": 42,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_left",
+    "n": 1343,
+    "positive_mass_fraction_mean": 0.09004716607230581,
+    "enrichment_mean": 4.047210021077757
+  },
+  {
+    "seed": 42,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_right",
+    "n": 1343,
+    "positive_mass_fraction_mean": 0.07532487472600248,
+    "enrichment_mean": 3.2719462016923773
+  },
+  {
+    "seed": 42,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_left",
+    "n": 1343,
+    "positive_mass_fraction_mean": 0.050947236229914476,
+    "enrichment_mean": 4.2464746612139725
+  },
+  {
+    "seed": 42,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_right",
+    "n": 1343,
+    "positive_mass_fraction_mean": 0.027089337204467618,
+    "enrichment_mean": 2.176820966306703
+  },
+  {
+    "seed": 42,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lower_face",
+    "n": 1343,
+    "positive_mass_fraction_mean": 0.004523960373432119,
+    "enrichment_mean": 0.24659926313724
+  },
+  {
+    "seed": 42,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "forehead",
+    "n": 1343,
+    "positive_mass_fraction_mean": 0.021060261060016496,
+    "enrichment_mean": 1.2079470426506622
+  },
+  {
+    "seed": 42,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "background_corner",
+    "n": 1343,
+    "positive_mass_fraction_mean": 0.0059432465234370135,
+    "enrichment_mean": 0.8060224520685797
+  },
+  {
+    "seed": 42,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "bridge",
+    "n": 1343,
+    "positive_mass_fraction_mean": 0.062423997357539944,
+    "enrichment_mean": 4.918851263970434
+  },
+  {
+    "seed": 43,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "glasses",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.18246967151352703,
+    "enrichment_mean": 1.4749957377095269
+  },
+  {
+    "seed": 43,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_left",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.047749736024464265,
+    "enrichment_mean": 2.0666748247226594
+  },
+  {
+    "seed": 43,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_right",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.043665639470703344,
+    "enrichment_mean": 1.9212045849668287
+  },
+  {
+    "seed": 43,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_left",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.015497087114598893,
+    "enrichment_mean": 1.1836987956159393
+  },
+  {
+    "seed": 43,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_right",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.015469011343707382,
+    "enrichment_mean": 1.2386125608967609
+  },
+  {
+    "seed": 43,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lower_face",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.013835862714591881,
+    "enrichment_mean": 0.7355399389104175
+  },
+  {
+    "seed": 43,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "forehead",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.03659773811445061,
+    "enrichment_mean": 2.011378282093883
+  },
+  {
+    "seed": 43,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "background_corner",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.005087403233109995,
+    "enrichment_mean": 0.6475392858392437
+  },
+  {
+    "seed": 43,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "bridge",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.017214475766541545,
+    "enrichment_mean": 1.3637485642324414
+  },
+  {
+    "seed": 43,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "glasses",
+    "n": 1217,
+    "positive_mass_fraction_mean": 0.44488488481405264,
+    "enrichment_mean": 3.667328478639209
+  },
+  {
+    "seed": 43,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_left",
+    "n": 1217,
+    "positive_mass_fraction_mean": 0.10449146559078913,
+    "enrichment_mean": 4.704667004951036
+  },
+  {
+    "seed": 43,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_right",
+    "n": 1217,
+    "positive_mass_fraction_mean": 0.08735312168016096,
+    "enrichment_mean": 3.859345315373836
+  },
+  {
+    "seed": 43,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_left",
+    "n": 1217,
+    "positive_mass_fraction_mean": 0.062103339868933696,
+    "enrichment_mean": 5.253844716279457
+  },
+  {
+    "seed": 43,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_right",
+    "n": 1217,
+    "positive_mass_fraction_mean": 0.03262181515060186,
+    "enrichment_mean": 2.634018756667425
+  },
+  {
+    "seed": 43,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lower_face",
+    "n": 1217,
+    "positive_mass_fraction_mean": 0.008196679407138975,
+    "enrichment_mean": 0.46327048487226435
+  },
+  {
+    "seed": 43,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "forehead",
+    "n": 1217,
+    "positive_mass_fraction_mean": 0.018094789767109497,
+    "enrichment_mean": 1.0710956803446705
+  },
+  {
+    "seed": 43,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "background_corner",
+    "n": 1217,
+    "positive_mass_fraction_mean": 0.004322991358497469,
+    "enrichment_mean": 0.5591145258568873
+  },
+  {
+    "seed": 43,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "bridge",
+    "n": 1217,
+    "positive_mass_fraction_mean": 0.0657587086422772,
+    "enrichment_mean": 5.136582553358677
+  },
+  {
+    "seed": 44,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "glasses",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.2150167200664883,
+    "enrichment_mean": 1.739498047508967
+  },
+  {
+    "seed": 44,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_left",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.05730639978516017,
+    "enrichment_mean": 2.50686884806394
+  },
+  {
+    "seed": 44,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_right",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.04959457894631504,
+    "enrichment_mean": 2.1922088154388595
+  },
+  {
+    "seed": 44,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_left",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.02122244351393945,
+    "enrichment_mean": 1.6293235789497054
+  },
+  {
+    "seed": 44,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_right",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.020201294987360657,
+    "enrichment_mean": 1.6009919362245861
+  },
+  {
+    "seed": 44,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lower_face",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.011822343069221548,
+    "enrichment_mean": 0.6464545055228419
+  },
+  {
+    "seed": 44,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "forehead",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.02745774771614227,
+    "enrichment_mean": 1.487656507512312
+  },
+  {
+    "seed": 44,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "background_corner",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.004055734435747733,
+    "enrichment_mean": 0.539403400886814
+  },
+  {
+    "seed": 44,
+    "layer": 8,
+    "group_type": "overall",
+    "group": "all",
+    "region": "bridge",
+    "n": 1410,
+    "positive_mass_fraction_mean": 0.025691102580649754,
+    "enrichment_mean": 1.9980264265883987
+  },
+  {
+    "seed": 44,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "glasses",
+    "n": 1282,
+    "positive_mass_fraction_mean": 0.42307967471377633,
+    "enrichment_mean": 3.558060008148723
+  },
+  {
+    "seed": 44,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_left",
+    "n": 1282,
+    "positive_mass_fraction_mean": 0.09968679448368781,
+    "enrichment_mean": 4.621580500648852
+  },
+  {
+    "seed": 44,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lens_right",
+    "n": 1282,
+    "positive_mass_fraction_mean": 0.0780809899947606,
+    "enrichment_mean": 3.477645253909965
+  },
+  {
+    "seed": 44,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_left",
+    "n": 1282,
+    "positive_mass_fraction_mean": 0.06649000616118364,
+    "enrichment_mean": 5.713425644134528
+  },
+  {
+    "seed": 44,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "outer_right",
+    "n": 1282,
+    "positive_mass_fraction_mean": 0.03181007858528213,
+    "enrichment_mean": 2.52827944378921
+  },
+  {
+    "seed": 44,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "lower_face",
+    "n": 1282,
+    "positive_mass_fraction_mean": 0.0035517713935766535,
+    "enrichment_mean": 0.20822045822966267
+  },
+  {
+    "seed": 44,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "forehead",
+    "n": 1282,
+    "positive_mass_fraction_mean": 0.02345109009460703,
+    "enrichment_mean": 1.4003849624254217
+  },
+  {
+    "seed": 44,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "background_corner",
+    "n": 1282,
+    "positive_mass_fraction_mean": 0.002729205424344902,
+    "enrichment_mean": 0.38697169415041904
+  },
+  {
+    "seed": 44,
+    "layer": 12,
+    "group_type": "overall",
+    "group": "all",
+    "region": "bridge",
+    "n": 1282,
+    "positive_mass_fraction_mean": 0.06129257585276648,
+    "enrichment_mean": 4.92412032906434
+  }
+]

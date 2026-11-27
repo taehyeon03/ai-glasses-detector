@@ -1,0 +1,1491 @@
+{
+  "runs": [
+    {
+      "run_id": "mobilenet-full-s42",
+      "view": "full",
+      "seed": 42,
+      "git_commit": "2037bc9a52679c41c4989e0ac5047e08101c22fc",
+      "git_branch": "codex/mobilenet-evidence-20261127",
+      "git_dirty": false,
+      "best_epoch": 5,
+      "parameters": 1519906,
+      "pretrained_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+      "final": {
+        "train": {
+          "n": 7000,
+          "loss": 0.05085594579577446,
+          "accuracy": 0.9832857142857143,
+          "macro_f1": 0.9832851954445362,
+          "confusion_matrix": [
+            [
+              3422,
+              78
+            ],
+            [
+              39,
+              3461
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9887315804680729,
+              "recall": 0.9777142857142858,
+              "f1": 0.9831920701048701,
+              "support": 3500
+            },
+            "camera_glasses": {
+              "precision": 0.9779598756710935,
+              "recall": 0.9888571428571429,
+              "f1": 0.9833783207842023,
+              "support": 3500
+            }
+          },
+          "false_positive_rate": 0.022285714285714287,
+          "camera_recall": 0.9888571428571429
+        },
+        "validation": {
+          "n": 1500,
+          "loss": 0.08936287462711334,
+          "accuracy": 0.9686666666666667,
+          "macro_f1": 0.968666541332832,
+          "confusion_matrix": [
+            [
+              728,
+              22
+            ],
+            [
+              25,
+              725
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9667994687915007,
+              "recall": 0.9706666666666667,
+              "f1": 0.9687292082501664,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9705488621151271,
+              "recall": 0.9666666666666667,
+              "f1": 0.9686038744154977,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.029333333333333333,
+          "camera_recall": 0.9666666666666667
+        },
+        "test": {
+          "n": 1500,
+          "loss": 0.07518124580383301,
+          "accuracy": 0.974,
+          "macro_f1": 0.9739986017025806,
+          "confusion_matrix": [
+            [
+              736,
+              14
+            ],
+            [
+              25,
+              725
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9671484888304862,
+              "recall": 0.9813333333333333,
+              "f1": 0.9741892786234283,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9810554803788903,
+              "recall": 0.9666666666666667,
+              "f1": 0.9738079247817327,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.018666666666666668,
+          "camera_recall": 0.9666666666666667
+        }
+      },
+      "checkpoint_sha256": "0556214650cef1a35af4703ca8b4ec101bb1513e54480068151c3be6bf09fb8a",
+      "record_validation": {
+        "valid": true,
+        "epochs": 20,
+        "test_evaluations": 1,
+        "jetson_validation": "pending"
+      }
+    },
+    {
+      "run_id": "mobilenet-full-s43",
+      "view": "full",
+      "seed": 43,
+      "git_commit": "2037bc9a52679c41c4989e0ac5047e08101c22fc",
+      "git_branch": "codex/mobilenet-evidence-20261127",
+      "git_dirty": false,
+      "best_epoch": 6,
+      "parameters": 1519906,
+      "pretrained_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+      "final": {
+        "train": {
+          "n": 7000,
+          "loss": 0.04281295835971832,
+          "accuracy": 0.9844285714285714,
+          "macro_f1": 0.9844273100406847,
+          "confusion_matrix": [
+            [
+              3414,
+              86
+            ],
+            [
+              23,
+              3477
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9933081175443701,
+              "recall": 0.9754285714285714,
+              "f1": 0.9842871558310509,
+              "support": 3500
+            },
+            "camera_glasses": {
+              "precision": 0.9758630367667696,
+              "recall": 0.9934285714285714,
+              "f1": 0.9845674642503186,
+              "support": 3500
+            }
+          },
+          "false_positive_rate": 0.02457142857142857,
+          "camera_recall": 0.9934285714285714
+        },
+        "validation": {
+          "n": 1500,
+          "loss": 0.08560298383235931,
+          "accuracy": 0.972,
+          "macro_f1": 0.9719982078853047,
+          "confusion_matrix": [
+            [
+              735,
+              15
+            ],
+            [
+              27,
+              723
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9645669291338582,
+              "recall": 0.98,
+              "f1": 0.9722222222222221,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9796747967479674,
+              "recall": 0.964,
+              "f1": 0.9717741935483871,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.02,
+          "camera_recall": 0.964
+        },
+        "test": {
+          "n": 1500,
+          "loss": 0.15009991824626923,
+          "accuracy": 0.9526666666666667,
+          "macro_f1": 0.9526408822581183,
+          "confusion_matrix": [
+            [
+              732,
+              18
+            ],
+            [
+              53,
+              697
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.932484076433121,
+              "recall": 0.976,
+              "f1": 0.9537459283387623,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9748251748251748,
+              "recall": 0.9293333333333333,
+              "f1": 0.9515358361774744,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.024,
+          "camera_recall": 0.9293333333333333
+        }
+      },
+      "checkpoint_sha256": "12f807460cd7c95f10f1e838eb9a030a69fe6c08e8234051d554f9fc4021a2be",
+      "record_validation": {
+        "valid": true,
+        "epochs": 20,
+        "test_evaluations": 1,
+        "jetson_validation": "pending"
+      }
+    },
+    {
+      "run_id": "mobilenet-full-s44",
+      "view": "full",
+      "seed": 44,
+      "git_commit": "2037bc9a52679c41c4989e0ac5047e08101c22fc",
+      "git_branch": "codex/mobilenet-evidence-20261127",
+      "git_dirty": false,
+      "best_epoch": 5,
+      "parameters": 1519906,
+      "pretrained_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+      "final": {
+        "train": {
+          "n": 7000,
+          "loss": 0.07200731337070465,
+          "accuracy": 0.9725714285714285,
+          "macro_f1": 0.9725544705949334,
+          "confusion_matrix": [
+            [
+              3317,
+              183
+            ],
+            [
+              9,
+              3491
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.997294046903187,
+              "recall": 0.9477142857142857,
+              "f1": 0.9718722531497217,
+              "support": 3500
+            },
+            "camera_glasses": {
+              "precision": 0.9501905280348394,
+              "recall": 0.9974285714285714,
+              "f1": 0.973236688040145,
+              "support": 3500
+            }
+          },
+          "false_positive_rate": 0.05228571428571428,
+          "camera_recall": 0.9974285714285714
+        },
+        "validation": {
+          "n": 1500,
+          "loss": 0.10177019983530045,
+          "accuracy": 0.9666666666666667,
+          "macro_f1": 0.9666657184915483,
+          "confusion_matrix": [
+            [
+              721,
+              29
+            ],
+            [
+              21,
+              729
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9716981132075472,
+              "recall": 0.9613333333333334,
+              "f1": 0.9664879356568365,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9617414248021108,
+              "recall": 0.972,
+              "f1": 0.96684350132626,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.03866666666666667,
+          "camera_recall": 0.972
+        },
+        "test": {
+          "n": 1500,
+          "loss": 0.09434027224779129,
+          "accuracy": 0.9686666666666667,
+          "macro_f1": 0.9686663185146501,
+          "confusion_matrix": [
+            [
+              724,
+              26
+            ],
+            [
+              21,
+              729
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9718120805369127,
+              "recall": 0.9653333333333334,
+              "f1": 0.968561872909699,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9655629139072848,
+              "recall": 0.972,
+              "f1": 0.9687707641196013,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.034666666666666665,
+          "camera_recall": 0.972
+        }
+      },
+      "checkpoint_sha256": "973417a8814b8b38ca66eeaf764d564e2d9cce818a9c282b28b82add6cdb7b7e",
+      "record_validation": {
+        "valid": true,
+        "epochs": 20,
+        "test_evaluations": 1,
+        "jetson_validation": "pending"
+      }
+    },
+    {
+      "run_id": "mobilenet-roi_crop-s42",
+      "view": "roi_crop",
+      "seed": 42,
+      "git_commit": "2037bc9a52679c41c4989e0ac5047e08101c22fc",
+      "git_branch": "codex/mobilenet-evidence-20261127",
+      "git_dirty": false,
+      "best_epoch": 6,
+      "parameters": 1519906,
+      "pretrained_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+      "final": {
+        "train": {
+          "n": 7000,
+          "loss": 0.013153372332453728,
+          "accuracy": 0.9965714285714286,
+          "macro_f1": 0.9965713947052048,
+          "confusion_matrix": [
+            [
+              3477,
+              23
+            ],
+            [
+              1,
+              3499
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9997124784358827,
+              "recall": 0.9934285714285714,
+              "f1": 0.9965606190885641,
+              "support": 3500
+            },
+            "camera_glasses": {
+              "precision": 0.9934696195343555,
+              "recall": 0.9997142857142857,
+              "f1": 0.9965821703218457,
+              "support": 3500
+            }
+          },
+          "false_positive_rate": 0.006571428571428572,
+          "camera_recall": 0.9997142857142857
+        },
+        "validation": {
+          "n": 1500,
+          "loss": 0.054292675107717514,
+          "accuracy": 0.9786666666666667,
+          "macro_f1": 0.9786663253278719,
+          "confusion_matrix": [
+            [
+              731,
+              19
+            ],
+            [
+              13,
+              737
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9825268817204301,
+              "recall": 0.9746666666666667,
+              "f1": 0.9785809906291834,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9748677248677249,
+              "recall": 0.9826666666666667,
+              "f1": 0.9787516600265604,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.025333333333333333,
+          "camera_recall": 0.9826666666666667
+        },
+        "test": {
+          "n": 1500,
+          "loss": 0.08830079436302185,
+          "accuracy": 0.9793333333333333,
+          "macro_f1": 0.9793325893065484,
+          "confusion_matrix": [
+            [
+              739,
+              11
+            ],
+            [
+              20,
+              730
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9736495388669302,
+              "recall": 0.9853333333333333,
+              "f1": 0.9794565937707091,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9851551956815114,
+              "recall": 0.9733333333333334,
+              "f1": 0.9792085848423877,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.014666666666666666,
+          "camera_recall": 0.9733333333333334
+        }
+      },
+      "checkpoint_sha256": "2ee774ebb6b1c198457a25c391c164667c34d2f3edc5c640113b54a6c9509a2b",
+      "record_validation": {
+        "valid": true,
+        "epochs": 20,
+        "test_evaluations": 1,
+        "jetson_validation": "pending"
+      }
+    },
+    {
+      "run_id": "mobilenet-roi_crop-s43",
+      "view": "roi_crop",
+      "seed": 43,
+      "git_commit": "2037bc9a52679c41c4989e0ac5047e08101c22fc",
+      "git_branch": "codex/mobilenet-evidence-20261127",
+      "git_dirty": false,
+      "best_epoch": 6,
+      "parameters": 1519906,
+      "pretrained_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+      "final": {
+        "train": {
+          "n": 7000,
+          "loss": 0.006416169460862875,
+          "accuracy": 0.9995714285714286,
+          "macro_f1": 0.9995714285626822,
+          "confusion_matrix": [
+            [
+              3499,
+              1
+            ],
+            [
+              2,
+              3498
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9994287346472437,
+              "recall": 0.9997142857142857,
+              "f1": 0.9995714897871733,
+              "support": 3500
+            },
+            "camera_glasses": {
+              "precision": 0.9997142040583024,
+              "recall": 0.9994285714285714,
+              "f1": 0.9995713673381912,
+              "support": 3500
+            }
+          },
+          "false_positive_rate": 0.00028571428571428574,
+          "camera_recall": 0.9994285714285714
+        },
+        "validation": {
+          "n": 1500,
+          "loss": 0.05347803235054016,
+          "accuracy": 0.9813333333333333,
+          "macro_f1": 0.9813332005916486,
+          "confusion_matrix": [
+            [
+              738,
+              12
+            ],
+            [
+              16,
+              734
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9787798408488063,
+              "recall": 0.984,
+              "f1": 0.9813829787234042,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9839142091152815,
+              "recall": 0.9786666666666667,
+              "f1": 0.981283422459893,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.016,
+          "camera_recall": 0.9786666666666667
+        },
+        "test": {
+          "n": 1500,
+          "loss": 0.09413497895002365,
+          "accuracy": 0.9793333333333333,
+          "macro_f1": 0.9793317809204336,
+          "confusion_matrix": [
+            [
+              741,
+              9
+            ],
+            [
+              22,
+              728
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9711664482306684,
+              "recall": 0.988,
+              "f1": 0.9795109054857899,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9877883310719131,
+              "recall": 0.9706666666666667,
+              "f1": 0.9791526563550772,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.012,
+          "camera_recall": 0.9706666666666667
+        }
+      },
+      "checkpoint_sha256": "2976d3a254bd83ac1eedd414e77ed8848e0f61c1c5c98bc5af025580a6c9b0e4",
+      "record_validation": {
+        "valid": true,
+        "epochs": 20,
+        "test_evaluations": 1,
+        "jetson_validation": "pending"
+      }
+    },
+    {
+      "run_id": "mobilenet-roi_crop-s44",
+      "view": "roi_crop",
+      "seed": 44,
+      "git_commit": "2037bc9a52679c41c4989e0ac5047e08101c22fc",
+      "git_branch": "codex/mobilenet-evidence-20261127",
+      "git_dirty": false,
+      "best_epoch": 7,
+      "parameters": 1519906,
+      "pretrained_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+      "final": {
+        "train": {
+          "n": 7000,
+          "loss": 0.00383383478038013,
+          "accuracy": 0.9994285714285714,
+          "macro_f1": 0.9994285713819242,
+          "confusion_matrix": [
+            [
+              3497,
+              3
+            ],
+            [
+              1,
+              3499
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9997141223556318,
+              "recall": 0.9991428571428571,
+              "f1": 0.9994284081166048,
+              "support": 3500
+            },
+            "camera_glasses": {
+              "precision": 0.999143346659052,
+              "recall": 0.9997142857142857,
+              "f1": 0.9994287346472437,
+              "support": 3500
+            }
+          },
+          "false_positive_rate": 0.0008571428571428571,
+          "camera_recall": 0.9997142857142857
+        },
+        "validation": {
+          "n": 1500,
+          "loss": 0.05254855379462242,
+          "accuracy": 0.984,
+          "macro_f1": 0.9839997439959038,
+          "confusion_matrix": [
+            [
+              741,
+              9
+            ],
+            [
+              15,
+              735
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9801587301587301,
+              "recall": 0.988,
+              "f1": 0.9840637450199202,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9879032258064516,
+              "recall": 0.98,
+              "f1": 0.9839357429718876,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.012,
+          "camera_recall": 0.98
+        },
+        "test": {
+          "n": 1500,
+          "loss": 0.13767988979816437,
+          "accuracy": 0.9813333333333333,
+          "macro_f1": 0.9813300142247512,
+          "confusion_matrix": [
+            [
+              746,
+              4
+            ],
+            [
+              24,
+              726
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9688311688311688,
+              "recall": 0.9946666666666667,
+              "f1": 0.9815789473684211,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9945205479452055,
+              "recall": 0.968,
+              "f1": 0.9810810810810812,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.005333333333333333,
+          "camera_recall": 0.968
+        }
+      },
+      "checkpoint_sha256": "a8f9c28f230c9b49c06c58574718635e3338e939c4211de344e65078d3375fae",
+      "record_validation": {
+        "valid": true,
+        "epochs": 20,
+        "test_evaluations": 1,
+        "jetson_validation": "pending"
+      }
+    },
+    {
+      "run_id": "mobilenet-roi_mask-s42",
+      "view": "roi_mask",
+      "seed": 42,
+      "git_commit": "2037bc9a52679c41c4989e0ac5047e08101c22fc",
+      "git_branch": "codex/mobilenet-evidence-20261127",
+      "git_dirty": false,
+      "best_epoch": 15,
+      "parameters": 1519906,
+      "pretrained_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+      "final": {
+        "train": {
+          "n": 7000,
+          "loss": 0.0014813113957643509,
+          "accuracy": 1.0,
+          "macro_f1": 1.0,
+          "confusion_matrix": [
+            [
+              3500,
+              0
+            ],
+            [
+              0,
+              3500
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3500
+            },
+            "camera_glasses": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "support": 3500
+            }
+          },
+          "false_positive_rate": 0.0,
+          "camera_recall": 1.0
+        },
+        "validation": {
+          "n": 1500,
+          "loss": 0.1800672560930252,
+          "accuracy": 0.9466666666666667,
+          "macro_f1": 0.9466662874047104,
+          "confusion_matrix": [
+            [
+              708,
+              42
+            ],
+            [
+              38,
+              712
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9490616621983914,
+              "recall": 0.944,
+              "f1": 0.9465240641711229,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9442970822281167,
+              "recall": 0.9493333333333334,
+              "f1": 0.9468085106382979,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.056,
+          "camera_recall": 0.9493333333333334
+        },
+        "test": {
+          "n": 1500,
+          "loss": 0.23579996824264526,
+          "accuracy": 0.9466666666666667,
+          "macro_f1": 0.9466359289617486,
+          "confusion_matrix": [
+            [
+              728,
+              22
+            ],
+            [
+              58,
+              692
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.926208651399491,
+              "recall": 0.9706666666666667,
+              "f1": 0.9479166666666666,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.969187675070028,
+              "recall": 0.9226666666666666,
+              "f1": 0.9453551912568307,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.029333333333333333,
+          "camera_recall": 0.9226666666666666
+        }
+      },
+      "checkpoint_sha256": "73cee629692dfa9f6b3b29aee27601b51c46ec15b69c6e79e8a8f1dc3218ff14",
+      "record_validation": {
+        "valid": true,
+        "epochs": 20,
+        "test_evaluations": 1,
+        "jetson_validation": "pending"
+      }
+    },
+    {
+      "run_id": "mobilenet-roi_mask-s43",
+      "view": "roi_mask",
+      "seed": 43,
+      "git_commit": "2037bc9a52679c41c4989e0ac5047e08101c22fc",
+      "git_branch": "codex/mobilenet-evidence-20261127",
+      "git_dirty": false,
+      "best_epoch": 10,
+      "parameters": 1519906,
+      "pretrained_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+      "final": {
+        "train": {
+          "n": 7000,
+          "loss": 0.01807701587677002,
+          "accuracy": 0.9937142857142857,
+          "macro_f1": 0.993714252874464,
+          "confusion_matrix": [
+            [
+              3486,
+              14
+            ],
+            [
+              30,
+              3470
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9914675767918089,
+              "recall": 0.996,
+              "f1": 0.9937286202964652,
+              "support": 3500
+            },
+            "camera_glasses": {
+              "precision": 0.9959816303099885,
+              "recall": 0.9914285714285714,
+              "f1": 0.9936998854524628,
+              "support": 3500
+            }
+          },
+          "false_positive_rate": 0.004,
+          "camera_recall": 0.9914285714285714
+        },
+        "validation": {
+          "n": 1500,
+          "loss": 0.27865755558013916,
+          "accuracy": 0.9246666666666666,
+          "macro_f1": 0.9246457349263686,
+          "confusion_matrix": [
+            [
+              706,
+              44
+            ],
+            [
+              69,
+              681
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9109677419354839,
+              "recall": 0.9413333333333334,
+              "f1": 0.9259016393442624,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9393103448275862,
+              "recall": 0.908,
+              "f1": 0.9233898305084747,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.058666666666666666,
+          "camera_recall": 0.908
+        },
+        "test": {
+          "n": 1500,
+          "loss": 0.28301677107810974,
+          "accuracy": 0.9446666666666667,
+          "macro_f1": 0.9446026273038298,
+          "confusion_matrix": [
+            [
+              734,
+              16
+            ],
+            [
+              67,
+              683
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.916354556803995,
+              "recall": 0.9786666666666667,
+              "f1": 0.9464861379754996,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.977110157367668,
+              "recall": 0.9106666666666666,
+              "f1": 0.94271911663216,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.021333333333333333,
+          "camera_recall": 0.9106666666666666
+        }
+      },
+      "checkpoint_sha256": "72faf9e59307cbdfd8184fadcc7ec2d4facdd926851231df64d5a143926f180f",
+      "record_validation": {
+        "valid": true,
+        "epochs": 20,
+        "test_evaluations": 1,
+        "jetson_validation": "pending"
+      }
+    },
+    {
+      "run_id": "mobilenet-roi_mask-s44",
+      "view": "roi_mask",
+      "seed": 44,
+      "git_commit": "2037bc9a52679c41c4989e0ac5047e08101c22fc",
+      "git_branch": "codex/mobilenet-evidence-20261127",
+      "git_dirty": false,
+      "best_epoch": 14,
+      "parameters": 1519906,
+      "pretrained_sha256": "047dcff4addef86ea5bc2eff13c9614dc11f47ab1160d0a71a25e7db994f4e1f",
+      "final": {
+        "train": {
+          "n": 7000,
+          "loss": 0.0032667857594788074,
+          "accuracy": 0.9997142857142857,
+          "macro_f1": 0.9997142856909621,
+          "confusion_matrix": [
+            [
+              3498,
+              2
+            ],
+            [
+              0,
+              3500
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 1.0,
+              "recall": 0.9994285714285714,
+              "f1": 0.9997142040583024,
+              "support": 3500
+            },
+            "camera_glasses": {
+              "precision": 0.9994288977727013,
+              "recall": 1.0,
+              "f1": 0.9997143673236218,
+              "support": 3500
+            }
+          },
+          "false_positive_rate": 0.0005714285714285715,
+          "camera_recall": 1.0
+        },
+        "validation": {
+          "n": 1500,
+          "loss": 0.21749509871006012,
+          "accuracy": 0.9473333333333334,
+          "macro_f1": 0.9473333099259156,
+          "confusion_matrix": [
+            [
+              711,
+              39
+            ],
+            [
+              40,
+              710
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9467376830892144,
+              "recall": 0.948,
+              "f1": 0.9473684210526316,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9479305740987984,
+              "recall": 0.9466666666666667,
+              "f1": 0.9472981987991995,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.052,
+          "camera_recall": 0.9466666666666667
+        },
+        "test": {
+          "n": 1500,
+          "loss": 0.2773166000843048,
+          "accuracy": 0.952,
+          "macro_f1": 0.9519945380452176,
+          "confusion_matrix": [
+            [
+              722,
+              28
+            ],
+            [
+              44,
+              706
+            ]
+          ],
+          "class_order": [
+            "ordinary_glasses",
+            "camera_glasses"
+          ],
+          "per_class": {
+            "ordinary_glasses": {
+              "precision": 0.9425587467362925,
+              "recall": 0.9626666666666667,
+              "f1": 0.9525065963060686,
+              "support": 750
+            },
+            "camera_glasses": {
+              "precision": 0.9618528610354223,
+              "recall": 0.9413333333333334,
+              "f1": 0.9514824797843666,
+              "support": 750
+            }
+          },
+          "false_positive_rate": 0.037333333333333336,
+          "camera_recall": 0.9413333333333334
+        }
+      },
+      "checkpoint_sha256": "6961fce3c5577ad895a772fc2c34023e212f5327c9beb6f99124cd5d9062bd52",
+      "record_validation": {
+        "valid": true,
+        "epochs": 20,
+        "test_evaluations": 1,
+        "jetson_validation": "pending"
+      }
+    }
+  ],
+  "aggregate": [
+    {
+      "view": "full",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "validation": {
+        "loss": {
+          "mean": 0.09224535276492436,
+          "std_across_seeds": 0.008460273546562064,
+          "values": [
+            0.08936287462711334,
+            0.08560298383235931,
+            0.10177019983530045
+          ]
+        },
+        "accuracy": {
+          "mean": 0.9691111111111111,
+          "std_across_seeds": 0.002694301256218236,
+          "values": [
+            0.9686666666666667,
+            0.972,
+            0.9666666666666667
+          ]
+        },
+        "macro_f1": {
+          "mean": 0.9691101559032284,
+          "std_across_seeds": 0.0026937810228249933,
+          "values": [
+            0.968666541332832,
+            0.9719982078853047,
+            0.9666657184915483
+          ]
+        },
+        "false_positive_rate": {
+          "mean": 0.029333333333333333,
+          "std_across_seeds": 0.009333333333333334,
+          "values": [
+            0.029333333333333333,
+            0.02,
+            0.03866666666666667
+          ]
+        },
+        "camera_recall": {
+          "mean": 0.9675555555555556,
+          "std_across_seeds": 0.004073400617738524,
+          "values": [
+            0.9666666666666667,
+            0.964,
+            0.972
+          ]
+        }
+      },
+      "test": {
+        "loss": {
+          "mean": 0.10654047876596451,
+          "std_across_seeds": 0.03892088962817808,
+          "values": [
+            0.07518124580383301,
+            0.15009991824626923,
+            0.09434027224779129
+          ]
+        },
+        "accuracy": {
+          "mean": 0.9651111111111111,
+          "std_across_seeds": 0.01110221866381937,
+          "values": [
+            0.974,
+            0.9526666666666667,
+            0.9686666666666667
+          ]
+        },
+        "macro_f1": {
+          "mean": 0.9651019341584496,
+          "std_across_seeds": 0.011116054688878411,
+          "values": [
+            0.9739986017025806,
+            0.9526408822581183,
+            0.9686663185146501
+          ]
+        },
+        "false_positive_rate": {
+          "mean": 0.025777777777777778,
+          "std_across_seeds": 0.008146801235477048,
+          "values": [
+            0.018666666666666668,
+            0.024,
+            0.034666666666666665
+          ]
+        },
+        "camera_recall": {
+          "mean": 0.956,
+          "std_across_seeds": 0.023247461032216914,
+          "values": [
+            0.9666666666666667,
+            0.9293333333333333,
+            0.972
+          ]
+        }
+      }
+    },
+    {
+      "view": "roi_mask",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "validation": {
+        "loss": {
+          "mean": 0.22540663679440817,
+          "std_across_seeds": 0.049769027661636836,
+          "values": [
+            0.1800672560930252,
+            0.27865755558013916,
+            0.21749509871006012
+          ]
+        },
+        "accuracy": {
+          "mean": 0.9395555555555556,
+          "std_across_seeds": 0.012898463876383534,
+          "values": [
+            0.9466666666666667,
+            0.9246666666666666,
+            0.9473333333333334
+          ]
+        },
+        "macro_f1": {
+          "mean": 0.9395484440856648,
+          "std_across_seeds": 0.012910433183122794,
+          "values": [
+            0.9466662874047104,
+            0.9246457349263686,
+            0.9473333099259156
+          ]
+        },
+        "false_positive_rate": {
+          "mean": 0.05555555555555555,
+          "std_across_seeds": 0.003355481971231445,
+          "values": [
+            0.056,
+            0.058666666666666666,
+            0.052
+          ]
+        },
+        "camera_recall": {
+          "mean": 0.9346666666666668,
+          "std_across_seeds": 0.02313246876386329,
+          "values": [
+            0.9493333333333334,
+            0.908,
+            0.9466666666666667
+          ]
+        }
+      },
+      "test": {
+        "loss": {
+          "mean": 0.2653777798016866,
+          "std_across_seeds": 0.025773206820383712,
+          "values": [
+            0.23579996824264526,
+            0.28301677107810974,
+            0.2773166000843048
+          ]
+        },
+        "accuracy": {
+          "mean": 0.9477777777777777,
+          "std_across_seeds": 0.0037908271353848675,
+          "values": [
+            0.9466666666666667,
+            0.9446666666666667,
+            0.952
+          ]
+        },
+        "macro_f1": {
+          "mean": 0.9477443647702654,
+          "std_across_seeds": 0.003818580699469714,
+          "values": [
+            0.9466359289617486,
+            0.9446026273038298,
+            0.9519945380452176
+          ]
+        },
+        "false_positive_rate": {
+          "mean": 0.029333333333333333,
+          "std_across_seeds": 0.008000000000000002,
+          "values": [
+            0.029333333333333333,
+            0.021333333333333333,
+            0.037333333333333336
+          ]
+        },
+        "camera_recall": {
+          "mean": 0.9248888888888889,
+          "std_across_seeds": 0.015453634356189998,
+          "values": [
+            0.9226666666666666,
+            0.9106666666666666,
+            0.9413333333333334
+          ]
+        }
+      }
+    },
+    {
+      "view": "roi_crop",
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "validation": {
+        "loss": {
+          "mean": 0.05343975375096003,
+          "std_across_seeds": 0.0008726905104832408,
+          "values": [
+            0.054292675107717514,
+            0.05347803235054016,
+            0.05254855379462242
+          ]
+        },
+        "accuracy": {
+          "mean": 0.9813333333333333,
+          "std_across_seeds": 0.0026666666666666505,
+          "values": [
+            0.9786666666666667,
+            0.9813333333333333,
+            0.984
+          ]
+        },
+        "macro_f1": {
+          "mean": 0.9813330899718081,
+          "std_across_seeds": 0.0026667093357367363,
+          "values": [
+            0.9786663253278719,
+            0.9813332005916486,
+            0.9839997439959038
+          ]
+        },
+        "false_positive_rate": {
+          "mean": 0.017777777777777778,
+          "std_across_seeds": 0.0068421352525958445,
+          "values": [
+            0.025333333333333333,
+            0.016,
+            0.012
+          ]
+        },
+        "camera_recall": {
+          "mean": 0.9804444444444446,
+          "std_across_seeds": 0.002036700308869268,
+          "values": [
+            0.9826666666666667,
+            0.9786666666666667,
+            0.98
+          ]
+        }
+      },
+      "test": {
+        "loss": {
+          "mean": 0.10670522103706996,
+          "std_across_seeds": 0.02698299475768842,
+          "values": [
+            0.08830079436302185,
+            0.09413497895002365,
+            0.13767988979816437
+          ]
+        },
+        "accuracy": {
+          "mean": 0.98,
+          "std_across_seeds": 0.0011547005383792527,
+          "values": [
+            0.9793333333333333,
+            0.9793333333333333,
+            0.9813333333333333
+          ]
+        },
+        "macro_f1": {
+          "mean": 0.9799981281505777,
+          "std_across_seeds": 0.0011534472459999636,
+          "values": [
+            0.9793325893065484,
+            0.9793317809204336,
+            0.9813300142247512
+          ]
+        },
+        "false_positive_rate": {
+          "mean": 0.010666666666666666,
+          "std_across_seeds": 0.004807401700618653,
+          "values": [
+            0.014666666666666666,
+            0.012,
+            0.005333333333333333
+          ]
+        },
+        "camera_recall": {
+          "mean": 0.9706666666666667,
+          "std_across_seeds": 0.002666666666666706,
+          "values": [
+            0.9733333333333334,
+            0.9706666666666667,
+            0.968
+          ]
+        }
+      }
+    }
+  ],
+  "selected_run": "mobilenet-roi_crop-s44",
+  "selection": "highest mean validation macro-F1 selects view; highest validation macro-F1 selects seed; FPR/loss break seed ties",
+  "geometry": {
+    "train": {
+      "n": 7000,
+      "failed": 300,
+      "low_confidence": 9
+    },
+    "validation": {
+      "n": 1500,
+      "failed": 90,
+      "low_confidence": 1
+    },
+    "test": {
+      "n": 1500,
+      "failed": 2,
+      "low_confidence": 3
+    }
+  },
+  "source_manifest_sha256": "0713b85a9fd72c29f896866571c2b0068f3cb21e1414d2655c110d2e5803f244",
+  "dataset_revision": "0d8cef1decdbd80bcce5aacd6f36a093c71af3cc",
+  "jetson_validation": "pending",
+  "notes": [
+    "Standard deviations describe three optimizer seeds on the same fixed split, not population confidence intervals",
+    "Every split contains known products; this is not an unseen-product benchmark",
+    "Automatic regions are estimates; exact camera annotations and manual geometry review remain pending"
+  ]
+}
