@@ -36,8 +36,9 @@ def main():
         valid=np.load(Path(config["part_cache"])/"valid.npy"))
     names=list(arrays)
     sample=tuple(torch.from_numpy(np.array(arrays[name][indices[0]:indices[0]+1],copy=True)).cuda() for name in names)
+    write_json(output/"status.json",dict(state="running",kind="onnx_export",batch_size=1))
     torch.onnx.export(network,sample,str(output/"model.onnx"),input_names=names,output_names=["logits"],
-        dynamic_axes={name:{0:"batch"} for name in names}|{"logits":{0:"batch"}},opset_version=13,dynamo=False)
+        opset_version=13,dynamo=False)
     onnx.checker.check_model(onnx.load(str(output/"model.onnx")))
     session=ort.InferenceSession(str(output/"model.onnx"),providers=["CPUExecutionProvider"])
     used=[item.name for item in session.get_inputs()]
@@ -58,11 +59,20 @@ def main():
         image_size=config["image_size"],local_size=config["local_size"],threshold=.5,
         class_order=["ordinary_glasses","camera_glasses"],source_checkpoint_sha256=sha256(run/"checkpoint.pt"),
         model_sha256=sha256(output/"model.onnx"),input_names=used,normalization="inside ONNX graph",
-        geometry_policy="fixed YuNet estimates; missing geometry requires retry",opset=13,
+        geometry_policy="fixed YuNet estimates; missing geometry requires retry",opset=13,batch_size=1,
         jetson_validation="pending"))
     write_json(output/"parity.json",dict(passed=True,cases=checks,scope="PC FP32; five validation cases; batch 1",
         jetson_validation="pending"))
+    write_json(output/"status.json",dict(state="completed",kind="onnx_export",jetson_validation="pending"))
     print(json.dumps(dict(output=str(output),parity=checks),indent=2))
 
 
-if __name__=="__main__":main()
+if __name__=="__main__":
+    try:
+        main()
+    except Exception:
+        import sys,traceback
+        if "--output" in sys.argv:
+            path=Path(sys.argv[sys.argv.index("--output")+1])
+            if path.exists():write_json(path/"status.json",dict(state="failed",traceback=traceback.format_exc()))
+        raise
