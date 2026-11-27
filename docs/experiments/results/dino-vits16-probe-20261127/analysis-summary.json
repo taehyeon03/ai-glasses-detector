@@ -1,0 +1,133 @@
+{
+  "training_commit": "976e22d3bfebfb4c62828c4b2607a36fcf677c39",
+  "training_git_dirty": false,
+  "analysis_commit": "5c34370a9d31b54632af45d05cd179e9d73e7cd0",
+  "analysis_git_dirty": false,
+  "config": {
+    "experiment_id": "dino-vits16-probe-ig-20261127",
+    "dataset_id": "KTH03/camera-glasses-research-20261127",
+    "dataset_revision": "0d8cef1decdbd80bcce5aacd6f36a093c71af3cc",
+    "hub_repo": "facebookresearch/dino:7c446df5b9f45747937fb0d72314eb9f7b66930a",
+    "encoder": "dino_vits16",
+    "image_size": 224,
+    "image_batch_size": 64,
+    "feature_batch_size": 256,
+    "workers": 4,
+    "epochs": 30,
+    "lr": 0.001,
+    "weight_decay": 0.01,
+    "seed": 42,
+    "device": "cuda",
+    "explain": true,
+    "explanation_samples": 8,
+    "ig_steps": 32,
+    "random_mask_repeats": 10
+  },
+  "training_status": {
+    "state": "completed",
+    "elapsed_seconds": 421.30964517593384,
+    "finished_at": "2026-11-27T04:22:03.016716+00:00",
+    "jetson_validation": "pending"
+  },
+  "analysis_status": {
+    "state": "completed",
+    "kind": "checkpoint_analysis",
+    "elapsed_seconds": 60.00099539756775
+  },
+  "data_audit": {
+    "release_checksums_sha256": "0713b85a9fd72c29f896866571c2b0068f3cb21e1414d2655c110d2e5803f244",
+    "audit": {
+      "sample_id": {
+        "cross_split_overlap": 0,
+        "unique_values": 10000
+      },
+      "identity_group_id": {
+        "cross_split_overlap": 0,
+        "unique_values": 22
+      },
+      "regeneration_family_id": {
+        "cross_split_overlap": 0,
+        "unique_values": 9860
+      },
+      "portrait_reference_sha256": {
+        "cross_split_overlap": 0,
+        "unique_values": 82
+      },
+      "image_sha256": {
+        "cross_split_overlap": 0,
+        "unique_values": 10000
+      }
+    }
+  },
+  "pretrained_weights_sha256": "1566d50496f27f52f07fea6094fa29b2fdd6fae89da65bdd3ebc3b24ef6b7eb7",
+  "attribution": {
+    "n": 16,
+    "completeness_passed": 16,
+    "max_scaled_error": 0.01583478247806969,
+    "max_steps": 256,
+    "tolerance": 0.02,
+    "baseline_top10_overlap_mean": 0.4375
+  },
+  "occlusion": [
+    {
+      "baseline": "mean",
+      "masked_patches": 10,
+      "total_patches": 196,
+      "n": 8,
+      "top_margin_drop_mean": 2.3913012482225895,
+      "random_margin_drop_mean": 0.08013257831335069,
+      "top_exceeds_random_count": 8
+    },
+    {
+      "baseline": "mean",
+      "masked_patches": 20,
+      "total_patches": 196,
+      "n": 8,
+      "top_margin_drop_mean": 3.810536988079548,
+      "random_margin_drop_mean": 0.18551123514771464,
+      "top_exceeds_random_count": 8
+    },
+    {
+      "baseline": "mean",
+      "masked_patches": 39,
+      "total_patches": 196,
+      "n": 8,
+      "top_margin_drop_mean": 5.248354434967041,
+      "random_margin_drop_mean": 0.25606590248644345,
+      "top_exceeds_random_count": 8
+    },
+    {
+      "baseline": "blur",
+      "masked_patches": 10,
+      "total_patches": 196,
+      "n": 8,
+      "top_margin_drop_mean": 2.8038046695291996,
+      "random_margin_drop_mean": 0.03398963660001756,
+      "top_exceeds_random_count": 8
+    },
+    {
+      "baseline": "blur",
+      "masked_patches": 20,
+      "total_patches": 196,
+      "n": 8,
+      "top_margin_drop_mean": 5.203655049204826,
+      "random_margin_drop_mean": 0.04649383686482901,
+      "top_exceeds_random_count": 8
+    },
+    {
+      "baseline": "blur",
+      "masked_patches": 39,
+      "total_patches": 196,
+      "n": 8,
+      "top_margin_drop_mean": 7.272677183151245,
+      "random_margin_drop_mean": -0.03084202669560919,
+      "top_exceeds_random_count": 8
+    }
+  ],
+  "notes": [
+    "8 validation examples chosen by truth/prediction cells; not a representative population estimate",
+    "Completeness pass is a numerical check; it does not establish causal faithfulness",
+    "Occlusion score is predicted-class logit minus other-class logit; not probability",
+    "Initial trapezoidal IG maps are superseded by the separate Gauss-Legendre analysis"
+  ]
+}
