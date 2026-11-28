@@ -1,0 +1,1083 @@
+{
+  "name": "youtube-v1",
+  "version": 1,
+  "created": "2026-11-28",
+  "defaults": {
+    "fps": 2.0
+  },
+  "description": "Fixed YouTube timeline set for camera-glasses checks without physical devices. Online video domain only.",
+  "duration_seconds": {
+    "total": 1779,
+    "camera_glasses": 858,
+    "no_glasses": 274,
+    "ordinary_glasses": 647,
+    "by_training_overlap": {
+      "same_family": 230,
+      "in_training": 345,
+      "not_applicable": 274,
+      "ood": 930
+    }
+  },
+  "cases": [
+    {
+      "id": "rayban-meta-gen1-1yr",
+      "url": "https://www.youtube.com/watch?v=X95mWoTgjaE",
+      "title": "Ray-Ban Meta Glasses – 1 Year Later: What It's Actually Like!",
+      "product": "Ray-Ban Meta Wayfarer (Gen 1), sunglasses",
+      "training_overlap": "same_family",
+      "training_product_ids": [
+        "b4a5063be62a258da1fb",
+        "47d9e7875aca7c004157",
+        "94f67c39f5b0bf32a366"
+      ],
+      "training_overlap_note": "Gen 1 era video; Gen 2 Wayfarer/Skyler/Headliner are in training",
+      "segments": [
+        {
+          "start": "1:31",
+          "end": "1:38",
+          "label": "camera_glasses",
+          "view": "three_quarter",
+          "note": "bridge, tinted"
+        },
+        {
+          "start": "1:45",
+          "end": "1:50",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "close-up, camera aperture visible"
+        },
+        {
+          "start": "3:11",
+          "end": "3:14",
+          "label": "camera_glasses",
+          "view": "mixed",
+          "note": "wide, bridge"
+        },
+        {
+          "start": "3:25",
+          "end": "3:34",
+          "label": "camera_glasses",
+          "view": "three_quarter",
+          "note": "bridge, close"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "camera aperture visible at hinge in 1:45-1:49 close-up; generation from video title, not verified",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "oakley-meta-hstn-review",
+      "url": "https://www.youtube.com/watch?v=xnUVYvzGAxw",
+      "title": "Oakley Meta HSTN Smart Glasses Review - What Apple Should’ve Built?",
+      "product": "Oakley Meta HSTN",
+      "training_overlap": "in_training",
+      "training_product_ids": [
+        "750c329908de25383d23"
+      ],
+      "training_overlap_note": "exact product",
+      "segments": [
+        {
+          "start": "0:28",
+          "end": "0:31",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "selfie, low angle"
+        },
+        {
+          "start": "1:43",
+          "end": "1:47",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "selfie, outdoor"
+        },
+        {
+          "start": "1:49",
+          "end": "1:51",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "selfie, indoor"
+        },
+        {
+          "start": "2:39",
+          "end": "2:43",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "selfie, indoor"
+        },
+        {
+          "start": "2:55",
+          "end": "3:01",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "phone overlay"
+        },
+        {
+          "start": "3:35",
+          "end": "3:42",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "phone overlay"
+        },
+        {
+          "start": "3:50",
+          "end": "3:54",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "phone overlay"
+        },
+        {
+          "start": "4:16",
+          "end": "4:18",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "selfie, orange lens"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "video title names the product; frame shape matches HSTN",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "xiaomi-ai-3wk",
+      "url": "https://www.youtube.com/watch?v=gRmj-5Q6utM",
+      "title": "Xiaomi AI Glasses - 3 Weeks Later | Honest Review",
+      "product": "Xiaomi AI Glasses",
+      "training_overlap": "in_training",
+      "training_product_ids": [
+        "07cf0eac710db0fdbecb"
+      ],
+      "training_overlap_note": "exact product",
+      "segments": [
+        {
+          "start": "0:20",
+          "end": "1:20",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head; inset overlay 0:24-0:28"
+        },
+        {
+          "start": "2:30",
+          "end": "3:30",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head; inset overlay 2:34-2:46"
+        },
+        {
+          "start": "3:30",
+          "end": "4:10",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "camera aperture at hinge visible in full-resolution crop at 0:40",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "rayban-meta-2yr",
+      "url": "https://www.youtube.com/watch?v=ePyyY9k1uXc",
+      "title": "I Used Ray-Ban Meta Glasses For 2 Years — My Honest Review",
+      "product": "Ray-Ban Meta (Gen 1/2) / presenter mostly without glasses",
+      "training_overlap": "same_family",
+      "training_product_ids": [
+        "b4a5063be62a258da1fb",
+        "47d9e7875aca7c004157",
+        "94f67c39f5b0bf32a366"
+      ],
+      "training_overlap_note": "generation not verified",
+      "segments": [
+        {
+          "start": "1:19",
+          "end": "1:23",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "garden, sunglasses"
+        },
+        {
+          "start": "0:25",
+          "end": "0:33",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head, holds glasses"
+        },
+        {
+          "start": "2:40",
+          "end": "2:47",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "3:00",
+          "end": "3:13",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head, holds glasses"
+        },
+        {
+          "start": "4:14",
+          "end": "4:22",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "video title only; Wayfarer-shaped sunglasses, generation not verified",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "rayban-meta-fulltime-eyeguy",
+      "url": "https://www.youtube.com/watch?v=yLreaz4F6Kk",
+      "title": "Should Meta Ray Ban Smart Glasses Be Full-Time Glasses? Review!",
+      "product": "Ray-Ban Meta Wayfarer, clear Rx lens",
+      "training_overlap": "same_family",
+      "training_product_ids": [
+        "b4a5063be62a258da1fb",
+        "47d9e7875aca7c004157",
+        "94f67c39f5b0bf32a366"
+      ],
+      "training_overlap_note": "generation not verified",
+      "segments": [
+        {
+          "start": "0:53",
+          "end": "1:03",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "1:13",
+          "end": "1:23",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "1:36",
+          "end": "2:03",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "3:00",
+          "end": "3:23",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head, overlays"
+        },
+        {
+          "start": "3:33",
+          "end": "4:06",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "4:13",
+          "end": "4:40",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head, overlays"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "camera apertures at both hinges visible in full-resolution crop at 1:48; generation not verified",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "rayban-meta-6mo",
+      "url": "https://www.youtube.com/watch?v=ViA4-YWx8Y4",
+      "title": "Meta Ray-Ban Smart Glasses Review - 6 Months Later",
+      "product": "Ray-Ban Meta Wayfarer (Gen 1), sunglasses",
+      "training_overlap": "same_family",
+      "training_product_ids": [
+        "b4a5063be62a258da1fb",
+        "47d9e7875aca7c004157",
+        "94f67c39f5b0bf32a366"
+      ],
+      "training_overlap_note": "Gen 1",
+      "segments": [
+        {
+          "start": "0:37",
+          "end": "0:46",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "2:24",
+          "end": "2:30",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "2:12",
+          "end": "2:20",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "3:20",
+          "end": "3:26",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head, holds glasses"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "product close-up with camera at 0:46 in the same video",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "rayban-meta-gen2-week",
+      "url": "https://www.youtube.com/watch?v=xegFRQPotuQ",
+      "title": "I Wore the Meta Ray-Ban (Gen 2) for a Week - Worth It?",
+      "product": "Ray-Ban Meta (Gen 2), clear lens",
+      "training_overlap": "in_training",
+      "training_product_ids": [
+        "b4a5063be62a258da1fb"
+      ],
+      "training_overlap_note": "Gen 2, Wayfarer shape; style not verified",
+      "segments": [
+        {
+          "start": "1:16",
+          "end": "1:56",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "0:36",
+          "end": "0:43",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "video title says Gen 2; Ray-Ban logo close-up at 1:14; style not verified",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "oakley-meta-vanguard",
+      "url": "https://www.youtube.com/watch?v=kRmmhOUwwM4",
+      "title": "Oakley Meta Vanguard In-Depth Review: 17 Things You Need to Know!",
+      "product": "Oakley Meta Vanguard (center camera)",
+      "training_overlap": "in_training",
+      "training_product_ids": [
+        "3fdf0a7d8059d11da27d"
+      ],
+      "training_overlap_note": "exact product",
+      "segments": [
+        {
+          "start": "3:57",
+          "end": "4:06",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "outdoor, wraparound"
+        },
+        {
+          "start": "2:45",
+          "end": "2:50",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "outdoor, sunglasses pushed up on head"
+        },
+        {
+          "start": "3:08",
+          "end": "3:22",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "outdoor, sunglasses on head"
+        },
+        {
+          "start": "4:16",
+          "end": "4:30",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "outdoor, sunglasses on head"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "video title and product unboxing in the same video",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "rayban-meta-gen2-6mo",
+      "url": "https://www.youtube.com/watch?v=Mzw7qgnp2PM",
+      "title": "Meta Ray-Ban (Gen 2) Glasses Review - 6 Months Later",
+      "product": "Ray-Ban Meta (Gen 2), sunglasses",
+      "training_overlap": "in_training",
+      "training_product_ids": [
+        "b4a5063be62a258da1fb"
+      ],
+      "training_overlap_note": "Gen 2, Wayfarer shape; style not verified",
+      "segments": [
+        {
+          "start": "1:18",
+          "end": "1:27",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "2:29",
+          "end": "2:39",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "3:00",
+          "end": "3:10",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "3:43",
+          "end": "3:50",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "3:20",
+          "end": "3:30",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "4:16",
+          "end": "4:40",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "video title says Gen 2; style not verified",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "solos-airgo-vision",
+      "url": "https://www.youtube.com/watch?v=mcRgqwAnFtY",
+      "title": "Solos AirGo Vision Review - The Ultimate AI Smart Glasses with ChatGPT & Live Translation!",
+      "product": "Solos AirGo Vision (camera on temple module)",
+      "training_overlap": "same_family",
+      "training_product_ids": [
+        "976be803d7248665ae27",
+        "afa37c1d653dddea06d9"
+      ],
+      "training_overlap_note": "AirGo Vision; AirGo V/V2 frames are in training",
+      "segments": [
+        {
+          "start": "1:08",
+          "end": "1:18",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "selfie and desk"
+        },
+        {
+          "start": "1:27",
+          "end": "1:37",
+          "label": "camera_glasses",
+          "view": "three_quarter",
+          "note": "kitchen, couch, car"
+        },
+        {
+          "start": "2:10",
+          "end": "2:26",
+          "label": "camera_glasses",
+          "view": "mixed",
+          "note": "desk, kitchen, car"
+        },
+        {
+          "start": "2:43",
+          "end": "2:55",
+          "label": "camera_glasses",
+          "view": "mixed",
+          "note": "selfie and car"
+        },
+        {
+          "start": "3:50",
+          "end": "3:54",
+          "label": "camera_glasses",
+          "view": "three_quarter",
+          "note": "kitchen"
+        },
+        {
+          "start": "3:57",
+          "end": "4:02",
+          "label": "camera_glasses",
+          "view": "three_quarter",
+          "note": "indoor and car"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "video title names AirGo Vision; camera module on the frame front visible in product shots",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "rayban-meta-gen2-nyc",
+      "url": "https://www.youtube.com/watch?v=PXferOAgzhs",
+      "title": "RAY-BAN META GEN 2: Day In Life (NYC)",
+      "product": "Ray-Ban Meta (Gen 2), sunglasses and clear lens",
+      "training_overlap": "in_training",
+      "training_product_ids": [
+        "b4a5063be62a258da1fb"
+      ],
+      "training_overlap_note": "Gen 2 per on-screen caption; style not verified",
+      "segments": [
+        {
+          "start": "1:00",
+          "end": "1:25",
+          "label": "camera_glasses",
+          "view": "mixed",
+          "note": "street, sunglasses"
+        },
+        {
+          "start": "1:57",
+          "end": "2:13",
+          "label": "camera_glasses",
+          "view": "mixed",
+          "note": "street, wide"
+        },
+        {
+          "start": "4:06",
+          "end": "4:33",
+          "label": "camera_glasses",
+          "view": "three_quarter",
+          "note": "clear lens, close-up"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "on-screen caption says shot on Ray-Ban Meta Gen 2; style not verified",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "meta-rayban-display-6mo",
+      "url": "https://www.youtube.com/watch?v=Kuf9qb0_W8I",
+      "title": "I Wore Meta Ray-Ban Displays for 6 Months… Here’s the Truth! Worth It In 2026?",
+      "product": "Meta Ray-Ban Display (with Neural Band)",
+      "training_overlap": "ood",
+      "training_product_ids": [],
+      "training_overlap_note": "product line not in training list",
+      "segments": [
+        {
+          "start": "0:40",
+          "end": "0:55",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "outdoor selfie, tinted"
+        },
+        {
+          "start": "0:56",
+          "end": "1:08",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "1:32",
+          "end": "1:40",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "1:49",
+          "end": "2:02",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "2:10",
+          "end": "2:40",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "3:10",
+          "end": "3:58",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "4:02",
+          "end": "4:40",
+          "label": "camera_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "video title names Meta Ray-Ban Display; product shots in the same video",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "brilliant-halo-part3",
+      "url": "https://www.youtube.com/watch?v=bWQiBroTpu8",
+      "title": "Living with Brilliant Labs Halo Glasses (Part 3)",
+      "product": "Brilliant Labs Halo (tinted)",
+      "training_overlap": "ood",
+      "training_product_ids": [],
+      "training_overlap_note": "product line not in training list",
+      "segments": [
+        {
+          "start": "1:21",
+          "end": "1:56",
+          "label": "camera_glasses",
+          "view": "mixed",
+          "note": "walking selfie, low angle, backlight"
+        },
+        {
+          "start": "2:16",
+          "end": "2:56",
+          "label": "camera_glasses",
+          "view": "mixed",
+          "note": "walking selfie"
+        },
+        {
+          "start": "2:58",
+          "end": "3:30",
+          "label": "camera_glasses",
+          "view": "mixed",
+          "note": "walking selfie, low angle"
+        },
+        {
+          "start": "3:32",
+          "end": "3:44",
+          "label": "camera_glasses",
+          "view": "mixed",
+          "note": "walking selfie"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "video title only; the worn tinted pair is assumed to be Halo, not verified",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "zeelool-face-shape",
+      "url": "https://www.youtube.com/watch?v=3jOMFI4XYCg",
+      "title": "Best Glasses for Your Face Shape? 👓 @zeelooloptical  Try-On Haul",
+      "product": "Zeelool frames (try-on)",
+      "training_overlap": "ood",
+      "training_product_ids": [],
+      "training_overlap_note": "product line not in training list",
+      "segments": [
+        {
+          "start": "1:52",
+          "end": "2:20",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "try-on"
+        },
+        {
+          "start": "2:24",
+          "end": "2:42",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "close-up"
+        },
+        {
+          "start": "3:06",
+          "end": "3:30",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "tortoise"
+        },
+        {
+          "start": "3:36",
+          "end": "4:00",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "clear frame"
+        },
+        {
+          "start": "4:06",
+          "end": "4:36",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "clear frame"
+        },
+        {
+          "start": "0:40",
+          "end": "1:20",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "brand from video title; no camera module visible on worn frames",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "zeelool-haul",
+      "url": "https://www.youtube.com/watch?v=EqSzjuy_fXY",
+      "title": "Zeelool glasses try on haul",
+      "product": "Zeelool frames (try-on)",
+      "training_overlap": "ood",
+      "training_product_ids": [],
+      "training_overlap_note": "product line not in training list",
+      "segments": [
+        {
+          "start": "1:04",
+          "end": "1:19",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "try-on"
+        },
+        {
+          "start": "1:43",
+          "end": "1:54",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "try-on"
+        },
+        {
+          "start": "3:41",
+          "end": "4:04",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "thin metal frame"
+        },
+        {
+          "start": "4:32",
+          "end": "4:40",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "thin metal frame"
+        },
+        {
+          "start": "2:56",
+          "end": "3:19",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head, holds glasses"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "brand from video title; no camera module visible on worn frames",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "warby-parker-try-on",
+      "url": "https://www.youtube.com/watch?v=LGI2G8ZUWP8",
+      "title": "GLASSES TRY-ON | WARBY PARKER",
+      "product": "Warby Parker home try-on",
+      "training_overlap": "ood",
+      "training_product_ids": [],
+      "training_overlap_note": "product line not in training list",
+      "segments": [
+        {
+          "start": "3:24",
+          "end": "3:56",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "tortoise"
+        },
+        {
+          "start": "4:00",
+          "end": "4:16",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "tortoise"
+        },
+        {
+          "start": "0:20",
+          "end": "1:04",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        },
+        {
+          "start": "1:57",
+          "end": "2:40",
+          "label": "no_glasses",
+          "view": "frontal",
+          "note": "talking head"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "brand from video title; no camera module visible on worn frames",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "warby-parker-haul-7",
+      "url": "https://www.youtube.com/watch?v=b8XKdNcSsTo",
+      "title": "WARBY PARKER EYEGLASSES HAUL *2025* - 7 PAIRS!👓🤓",
+      "product": "Warby Parker frames (haul)",
+      "training_overlap": "ood",
+      "training_product_ids": [],
+      "training_overlap_note": "product line not in training list",
+      "segments": [
+        {
+          "start": "0:20",
+          "end": "0:34",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "try-on"
+        },
+        {
+          "start": "1:04",
+          "end": "1:44",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "clear frame"
+        },
+        {
+          "start": "2:38",
+          "end": "3:02",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "dark frame"
+        },
+        {
+          "start": "3:28",
+          "end": "3:55",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "dark frame"
+        },
+        {
+          "start": "4:06",
+          "end": "4:16",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "dark frame"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "brand from video title; no camera module visible on worn frames",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "zenni-haul",
+      "url": "https://www.youtube.com/watch?v=aextrPG4v-A",
+      "title": "Zenni Optical Try On Haul📸🤓@ZenniOptical",
+      "product": "Zenni frames (try-on)",
+      "training_overlap": "ood",
+      "training_product_ids": [],
+      "training_overlap_note": "product line not in training list",
+      "segments": [
+        {
+          "start": "0:24",
+          "end": "1:46",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "black frame; case covers mouth 1:40-1:44"
+        },
+        {
+          "start": "2:04",
+          "end": "2:46",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "half-rim, product inset"
+        },
+        {
+          "start": "3:08",
+          "end": "3:52",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "tortoise"
+        },
+        {
+          "start": "4:00",
+          "end": "4:14",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "tortoise, fingers near eyes"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "brand from video title; no camera module visible on worn frames",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    },
+    {
+      "id": "zenni-review-try-on",
+      "url": "https://www.youtube.com/watch?v=1tb9lrxRjns",
+      "title": "Affordable Glasses?! Zenni Optical Review and Try On",
+      "product": "Zenni frames (try-on)",
+      "training_overlap": "ood",
+      "training_product_ids": [],
+      "training_overlap_note": "product line not in training list",
+      "segments": [
+        {
+          "start": "0:25",
+          "end": "0:38",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "metal frame"
+        },
+        {
+          "start": "1:22",
+          "end": "1:48",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "metal frame"
+        },
+        {
+          "start": "2:50",
+          "end": "3:54",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "browline"
+        },
+        {
+          "start": "4:18",
+          "end": "4:36",
+          "label": "ordinary_glasses",
+          "view": "frontal",
+          "note": "round frame"
+        }
+      ],
+      "review": {
+        "status": "pending_human_review",
+        "by": "claude-frame-check",
+        "date": "2026-11-28",
+        "method": "every second of every segment inspected on 1 fps strips; segments trimmed to seconds where the labeled state holds",
+        "product_identity": "see product_evidence"
+      },
+      "product_evidence": "brand from video title; no camera module visible on worn frames",
+      "person_group": "unknown",
+      "person_group_basis": ""
+    }
+  ]
+}

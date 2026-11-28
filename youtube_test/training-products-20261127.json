@@ -1,0 +1,777 @@
+{
+ "dataset": "KTH03/camera-glasses-research-20261127",
+ "source": "manifest.csv",
+ "n_products": 77,
+ "products": [
+  {
+   "product_id": "7f191c5d5be26de42806",
+   "label": "camera_glasses",
+   "product_name": "HTC VIVE Eagle",
+   "splits": {
+    "test": 62,
+    "train": 225,
+    "validation": 47
+   }
+  },
+  {
+   "product_id": "a30a73d915aa2caf2f22",
+   "label": "camera_glasses",
+   "product_name": "INMO GO3",
+   "splits": {
+    "test": 42,
+    "train": 242,
+    "validation": 50
+   }
+  },
+  {
+   "product_id": "85379cb086934b6f55dd",
+   "label": "camera_glasses",
+   "product_name": "Mentra Live",
+   "splits": {
+    "test": 45,
+    "train": 238,
+    "validation": 51
+   }
+  },
+  {
+   "product_id": "750c329908de25383d23",
+   "label": "camera_glasses",
+   "product_name": "Oakley Meta HSTN",
+   "splits": {
+    "test": 53,
+    "train": 251,
+    "validation": 30
+   }
+  },
+  {
+   "product_id": "3fdf0a7d8059d11da27d",
+   "label": "camera_glasses",
+   "product_name": "Oakley Meta Vanguard",
+   "splits": {
+    "test": 57,
+    "train": 223,
+    "validation": 54
+   }
+  },
+  {
+   "product_id": "94f67c39f5b0bf32a366",
+   "label": "camera_glasses",
+   "product_name": "Ray-Ban Meta Gen 2 Headliner",
+   "splits": {
+    "test": 46,
+    "train": 243,
+    "validation": 44
+   }
+  },
+  {
+   "product_id": "47d9e7875aca7c004157",
+   "label": "camera_glasses",
+   "product_name": "Ray-Ban Meta Gen 2 Skyler",
+   "splits": {
+    "test": 44,
+    "train": 258,
+    "validation": 31
+   }
+  },
+  {
+   "product_id": "b4a5063be62a258da1fb",
+   "label": "camera_glasses",
+   "product_name": "Ray-Ban Meta Gen 2 Wayfarer",
+   "splits": {
+    "test": 36,
+    "train": 241,
+    "validation": 56
+   }
+  },
+  {
+   "product_id": "f70f6c8049b6427b434a",
+   "label": "camera_glasses",
+   "product_name": "RayNeo X2",
+   "splits": {
+    "test": 62,
+    "train": 224,
+    "validation": 47
+   }
+  },
+  {
+   "product_id": "2f2587dbde3749b8e115",
+   "label": "camera_glasses",
+   "product_name": "RayNeo X3 Pro",
+   "splits": {
+    "test": 48,
+    "train": 222,
+    "validation": 63
+   }
+  },
+  {
+   "product_id": "56be4e05fc68d8165da4",
+   "label": "camera_glasses",
+   "product_name": "Rokid AI Glasses Style",
+   "splits": {
+    "test": 65,
+    "train": 202,
+    "validation": 66
+   }
+  },
+  {
+   "product_id": "f4e69057f9dc6f6d16c6",
+   "label": "camera_glasses",
+   "product_name": "Rokid Glasses With Display",
+   "splits": {
+    "test": 48,
+    "train": 237,
+    "validation": 48
+   }
+  },
+  {
+   "product_id": "afa37c1d653dddea06d9",
+   "label": "camera_glasses",
+   "product_name": "Solos AirGo V Krypton 1",
+   "splits": {
+    "test": 57,
+    "train": 220,
+    "validation": 56
+   }
+  },
+  {
+   "product_id": "976be803d7248665ae27",
+   "label": "camera_glasses",
+   "product_name": "Solos AirGo V2 Prime 1",
+   "splits": {
+    "test": 39,
+    "train": 233,
+    "validation": 61
+   }
+  },
+  {
+   "product_id": "07cf0eac710db0fdbecb",
+   "label": "camera_glasses",
+   "product_name": "Xiaomi AI Glasses",
+   "splits": {
+    "test": 46,
+    "train": 241,
+    "validation": 46
+   }
+  },
+  {
+   "product_id": "41489ed7923df2a32f77",
+   "label": "ordinary_glasses",
+   "product_name": "Amazon Blue Light Glasses Men Rectangle Large Browline Computer Gaming Glasses",
+   "splits": {
+    "test": 19,
+    "train": 47,
+    "validation": 15
+   }
+  },
+  {
+   "product_id": "0d0a0381a04a62a6a9bd",
+   "label": "ordinary_glasses",
+   "product_name": "Amazon Dollger Rectangle Blue Light Glasses for Men Metal Fashion Small Half Frame",
+   "splits": {
+    "test": 14,
+    "train": 56,
+    "validation": 11
+   }
+  },
+  {
+   "product_id": "acb6fd4c9a9dd6aa3d8a",
+   "label": "ordinary_glasses",
+   "product_name": "Amazon Ray-Ban RX5154 Clubmaster Square Eyeglasses for Men for Women",
+   "splits": {
+    "test": 20,
+    "train": 47,
+    "validation": 14
+   }
+  },
+  {
+   "product_id": "1ca8dcb7f345deed0c8d",
+   "label": "ordinary_glasses",
+   "product_name": "Amazon Ray-Ban Unisex Rx7216 New Clubmaster Square Prescription Eyewear Frames",
+   "splits": {
+    "test": 12,
+    "train": 53,
+    "validation": 16
+   }
+  },
+  {
+   "product_id": "fc3ec0a90aa085edcf42",
+   "label": "ordinary_glasses",
+   "product_name": "Amazon Shiratori Retro Eyebrow Frame Glasses for Men, Semi-Rimless Blue Light Blocking Glasses, Anti Blue Light Computer Glasses",
+   "splits": {
+    "test": 10,
+    "train": 59,
+    "validation": 12
+   }
+  },
+  {
+   "product_id": "922e9666d18ed3bacbdc",
+   "label": "ordinary_glasses",
+   "product_name": "Amazon Titanium Rimless Round Reading Glasses Blue Light for Men Women",
+   "splits": {
+    "test": 19,
+    "train": 41,
+    "validation": 21
+   }
+  },
+  {
+   "product_id": "e2cc77bd50f0c9dc8386",
+   "label": "ordinary_glasses",
+   "product_name": "Amazon Titanium Semi Rimless Prescription Glasses Frame For Men,Ultra Lightweight Optical Eyewear Frames Demo Lens 53mm",
+   "splits": {
+    "test": 10,
+    "train": 60,
+    "validation": 11
+   }
+  },
+  {
+   "product_id": "62df61c7d75f0c1cc3bd",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT ANDY black",
+   "splits": {
+    "test": 1,
+    "train": 71,
+    "validation": 9
+   }
+  },
+  {
+   "product_id": "9d119d244b3766221b95",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT AVA black",
+   "splits": {
+    "test": 12,
+    "train": 60,
+    "validation": 9
+   }
+  },
+  {
+   "product_id": "cef57f9b3569fed91d9b",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT BRANDON-N2 crystal",
+   "splits": {
+    "test": 23,
+    "train": 41,
+    "validation": 17
+   }
+  },
+  {
+   "product_id": "e53c1668f0dfa4da740a",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT EDIE black",
+   "splits": {
+    "test": 28,
+    "train": 38,
+    "validation": 15
+   }
+  },
+  {
+   "product_id": "ffa8dd36d41b11f21c77",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT FLEEK black",
+   "splits": {
+    "test": 1,
+    "train": 57,
+    "validation": 23
+   }
+  },
+  {
+   "product_id": "66480d40fa0bf5b86d98",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT GOAT black",
+   "splits": {
+    "test": 7,
+    "train": 65,
+    "validation": 9
+   }
+  },
+  {
+   "product_id": "8de0df324eaeb5577ad3",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT IKER gold",
+   "splits": {
+    "test": 12,
+    "train": 61,
+    "validation": 8
+   }
+  },
+  {
+   "product_id": "2a5a7e9e74f5fced9bac",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT JAMIE black",
+   "splits": {
+    "test": 14,
+    "train": 54,
+    "validation": 13
+   }
+  },
+  {
+   "product_id": "a1753d557d0cf9309118",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT REI black",
+   "splits": {
+    "test": 20,
+    "train": 36,
+    "validation": 25
+   }
+  },
+  {
+   "product_id": "2ebcc78d79206079862d",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT RISA black",
+   "splits": {
+    "test": 1,
+    "train": 54,
+    "validation": 26
+   }
+  },
+  {
+   "product_id": "3302f3a8d28c222bbabc",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT RIZZ black",
+   "splits": {
+    "test": 15,
+    "train": 53,
+    "validation": 13
+   }
+  },
+  {
+   "product_id": "2af021d0359ddbd8745b",
+   "label": "ordinary_glasses",
+   "product_name": "BLUE_ELEPHANT SASHA black",
+   "splits": {
+    "test": 1,
+    "train": 79,
+    "validation": 1
+   }
+  },
+  {
+   "product_id": "782c0ab8a83083a09298",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN AIR 3 A_C2",
+   "splits": {
+    "test": 11,
+    "train": 58,
+    "validation": 12
+   }
+  },
+  {
+   "product_id": "6695a8fd083e20644957",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN AIR 3 O_C2",
+   "splits": {
+    "test": 18,
+    "train": 54,
+    "validation": 9
+   }
+  },
+  {
+   "product_id": "ed56112e34ba40de64be",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN AIR 3 R_C1",
+   "splits": {
+    "test": 9,
+    "train": 61,
+    "validation": 11
+   }
+  },
+  {
+   "product_id": "b2670114e3813e044f0c",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN AIR 3 S_C3",
+   "splits": {
+    "test": 1,
+    "train": 72,
+    "validation": 8
+   }
+  },
+  {
+   "product_id": "99db169e6c2d4d7db81e",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN ARNO N_C2",
+   "splits": {
+    "test": 27,
+    "train": 41,
+    "validation": 13
+   }
+  },
+  {
+   "product_id": "5ac9d6abf9e5be6a95de",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN RONENN B_C1",
+   "splits": {
+    "test": 13,
+    "train": 57,
+    "validation": 11
+   }
+  },
+  {
+   "product_id": "c65e9d0d8857e04a70de",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN ROY A_C4",
+   "splits": {
+    "test": 31,
+    "train": 41,
+    "validation": 9
+   }
+  },
+  {
+   "product_id": "a05929ede4a482c1c10b",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN ROY C_C4",
+   "splits": {
+    "test": 27,
+    "train": 33,
+    "validation": 21
+   }
+  },
+  {
+   "product_id": "1a9ce040031d7230a804",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN ROY O_C3",
+   "splits": {
+    "test": 1,
+    "train": 54,
+    "validation": 26
+   }
+  },
+  {
+   "product_id": "652e21bedd161405747f",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN ROY P_C1",
+   "splits": {
+    "test": 27,
+    "train": 53,
+    "validation": 1
+   }
+  },
+  {
+   "product_id": "1a4dbbb6fd5b5e2ed0c2",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN ROY R_C3",
+   "splits": {
+    "test": 6,
+    "train": 64,
+    "validation": 11
+   }
+  },
+  {
+   "product_id": "33e3a012b1b48776a9a8",
+   "label": "ordinary_glasses",
+   "product_name": "CARIN ROY S_C3",
+   "splits": {
+    "test": 12,
+    "train": 68,
+    "validation": 1
+   }
+  },
+  {
+   "product_id": "c2e77cba5a48545b6de1",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF AVA - LIGHT PINK CRYSTAL + BLUE LIGHT READERS",
+   "splits": {
+    "test": 12,
+    "train": 60,
+    "validation": 9
+   }
+  },
+  {
+   "product_id": "1c4873960a8a7f7c1844",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF CAMERON - RICH RED TORTOISE + GREY GRADIENT + POLARIZED + SUNGLASSES",
+   "splits": {
+    "test": 29,
+    "train": 29,
+    "validation": 23
+   }
+  },
+  {
+   "product_id": "babe17afaf8f2350b6f1",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF CINDERELLA - BLUE CRYSTAL GLITTER + GLASSES",
+   "splits": {
+    "test": 10,
+    "train": 63,
+    "validation": 8
+   }
+  },
+  {
+   "product_id": "014302428326a8e05c62",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF CONNIE - GOLD + BLUE LIGHT GLASSES",
+   "splits": {
+    "test": 23,
+    "train": 29,
+    "validation": 29
+   }
+  },
+  {
+   "product_id": "c4f82063067e7d3eaa91",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF EMERSON - GOLD + BLUE LIGHT GLASSES",
+   "splits": {
+    "test": 11,
+    "train": 58,
+    "validation": 12
+   }
+  },
+  {
+   "product_id": "3f0f582d83adcb33ed3a",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF HAILEY - CREAM TORTOISE + SOLID GREY SUNGLASSES",
+   "splits": {
+    "test": 1,
+    "train": 55,
+    "validation": 25
+   }
+  },
+  {
+   "product_id": "17de9e7b67d26a74bae7",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF JADE - AQUA SEA CRYSTAL + BLUE LIGHT GLASSES",
+   "splits": {
+    "test": 15,
+    "train": 59,
+    "validation": 7
+   }
+  },
+  {
+   "product_id": "6116de265cb0f4afcbb1",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF JORDAN - POWDER PINK + GOLD + BROWN GRADIENT SUNGLASSES",
+   "splits": {
+    "test": 24,
+    "train": 32,
+    "validation": 25
+   }
+  },
+  {
+   "product_id": "39adc28a5636bd91e73c",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF MEREDITH - DARK TEAL + GLASSES",
+   "splits": {
+    "test": 32,
+    "train": 22,
+    "validation": 27
+   }
+  },
+  {
+   "product_id": "77249f2a7b8e4b2f8415",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF PARKER - DARK TEAL + BLUE LIGHT GLASSES",
+   "splits": {
+    "test": 1,
+    "train": 50,
+    "validation": 29
+   }
+  },
+  {
+   "product_id": "2bc234bdf21b052fa296",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF RIP WHEELER - WESTERN GOLD + GLASSES",
+   "splits": {
+    "test": 1,
+    "train": 78,
+    "validation": 1
+   }
+  },
+  {
+   "product_id": "ea38e8c7ddc35ac8c582",
+   "label": "ordinary_glasses",
+   "product_name": "DIFF THE DUTTON - SEQUOIA TORTOISE + GLASSES",
+   "splits": {
+    "test": 1,
+    "train": 70,
+    "validation": 9
+   }
+  },
+  {
+   "product_id": "b17d36a20b761e1abd21",
+   "label": "ordinary_glasses",
+   "product_name": "MANOMOS ANNI C1",
+   "splits": {
+    "test": 5,
+    "train": 65,
+    "validation": 10
+   }
+  },
+  {
+   "product_id": "2729dd46f3fc36bc9fd6",
+   "label": "ordinary_glasses",
+   "product_name": "MANOMOS GEORGE TITANIUM  53 C1",
+   "splits": {
+    "test": 6,
+    "train": 62,
+    "validation": 12
+   }
+  },
+  {
+   "product_id": "bd2834befdf008e9e396",
+   "label": "ordinary_glasses",
+   "product_name": "MANOMOS HAN C1",
+   "splits": {
+    "test": 1,
+    "train": 78,
+    "validation": 1
+   }
+  },
+  {
+   "product_id": "5c0b70d47fbf4f52ebae",
+   "label": "ordinary_glasses",
+   "product_name": "MANOMOS KWON C1",
+   "splits": {
+    "test": 24,
+    "train": 55,
+    "validation": 1
+   }
+  },
+  {
+   "product_id": "bd6f6968425fe10e42ff",
+   "label": "ordinary_glasses",
+   "product_name": "MANOMOS MOMEN C1",
+   "splits": {
+    "test": 12,
+    "train": 61,
+    "validation": 7
+   }
+  },
+  {
+   "product_id": "408945ad24fddc6fa38b",
+   "label": "ordinary_glasses",
+   "product_name": "MANOMOS OCCA C1",
+   "splits": {
+    "test": 17,
+    "train": 47,
+    "validation": 16
+   }
+  },
+  {
+   "product_id": "5a0f856c7b94e6156c19",
+   "label": "ordinary_glasses",
+   "product_name": "MANOMOS PRESI C1",
+   "splits": {
+    "test": 7,
+    "train": 65,
+    "validation": 8
+   }
+  },
+  {
+   "product_id": "a28a19ed384e43790013",
+   "label": "ordinary_glasses",
+   "product_name": "MANOMOS REMI C1",
+   "splits": {
+    "test": 24,
+    "train": 44,
+    "validation": 12
+   }
+  },
+  {
+   "product_id": "2b47dcaf22fe19e31f03",
+   "label": "ordinary_glasses",
+   "product_name": "MANOMOS RYU C1",
+   "splits": {
+    "test": 10,
+    "train": 58,
+    "validation": 12
+   }
+  },
+  {
+   "product_id": "906f2b17790d9b09cfe4",
+   "label": "ordinary_glasses",
+   "product_name": "Oakley Eye Jacket Redux OO9438-0158",
+   "splits": {
+    "test": 7,
+    "train": 65,
+    "validation": 8
+   }
+  },
+  {
+   "product_id": "290945ad0dc0a20128b9",
+   "label": "ordinary_glasses",
+   "product_name": "Oakley Gascan OO9014",
+   "splits": {
+    "test": 1,
+    "train": 78,
+    "validation": 1
+   }
+  },
+  {
+   "product_id": "6a5d9f1856a547d2425c",
+   "label": "ordinary_glasses",
+   "product_name": "Oakley HSTN SQ OX8208",
+   "splits": {
+    "test": 1,
+    "train": 73,
+    "validation": 6
+   }
+  },
+  {
+   "product_id": "f5e3eca0a73db8bd0c0e",
+   "label": "ordinary_glasses",
+   "product_name": "Oakley Hex Jector OX8032",
+   "splits": {
+    "test": 1,
+    "train": 72,
+    "validation": 7
+   }
+  },
+  {
+   "product_id": "e85b9d95543a5e236bfa",
+   "label": "ordinary_glasses",
+   "product_name": "Ray-Ban New Wayfarer RB2132",
+   "splits": {
+    "test": 7,
+    "train": 67,
+    "validation": 6
+   }
+  },
+  {
+   "product_id": "d965b93fc182810046f7",
+   "label": "ordinary_glasses",
+   "product_name": "Ray-Ban Original Wayfarer Optics RX5121F",
+   "splits": {
+    "test": 8,
+    "train": 65,
+    "validation": 7
+   }
+  },
+  {
+   "product_id": "bbeb614ffc0f6559c89d",
+   "label": "ordinary_glasses",
+   "product_name": "Ray-Ban RB2140 Original Wayfarer Classic 901",
+   "splits": {
+    "test": 12,
+    "train": 61,
+    "validation": 7
+   }
+  },
+  {
+   "product_id": "4210fbf793cdd27e9ab9",
+   "label": "ordinary_glasses",
+   "product_name": "Ray-Ban Wayfarer Deluxe Optics RX3875V",
+   "splits": {
+    "test": 3,
+    "train": 74,
+    "validation": 3
+   }
+  },
+  {
+   "product_id": "abeaab1d305ea1a50879",
+   "label": "ordinary_glasses",
+   "product_name": "Ray-Ban Wayfarer Ease RB4340",
+   "splits": {
+    "test": 4,
+    "train": 71,
+    "validation": 5
+   }
+  },
+  {
+   "product_id": "33f4fd64669a63b989b8",
+   "label": "ordinary_glasses",
+   "product_name": "goodr Darkwood Coffee Ritual",
+   "splits": {
+    "test": 18,
+    "train": 46,
+    "validation": 16
+   }
+  }
+ ]
+}
