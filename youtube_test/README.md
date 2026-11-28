@@ -85,20 +85,87 @@ Brilliant Labs Halo는 제목에만 의존한다.
 - 한 구간에는 한 사람이 같은 상태로 나오는 장면만 넣는다.
 - 세트 안에서 `id`는 겹치지 않아야 한다.
 
+## 처음 설정하기
+
+1. 저장소를 받는다.
+
+```bash
+git clone https://github.com/taehyeon03/ai-glasses-detector.git
+cd ai-glasses-detector
+```
+
+2. ffmpeg와 Python 패키지를 설치한다.
+
+```bash
+sudo apt install ffmpeg
+python3 -m venv ~/.local/share/ai-glasses-camera-env
+~/.local/share/ai-glasses-camera-env/bin/pip install -r requirements-youtube.txt
+```
+
+3. 모델 묶음을 받는다.
+
+모델 묶음은 공개 저장소에 올리지 않는다.
+팀 내부에서 폴더째로 전달받아 아래 위치에 둔다.
+
+```
+~/.local/share/ai-glasses-models/<모델 이름>/
+  manifest.json
+  model.onnx
+  face_detection_yunet_2023mar.onnx
+```
+
+현재 기준 모델은 `mobilenet-crop-s44`다.
+`manifest.json`의 `model_sha256`과 `model.onnx`가 맞지 않으면 실행을 멈춘다.
+다른 위치에 두었다면 `--models-root`로 지정한다.
+
 ## 실행
 
-실행 도구는 `codex/youtube-timeline-test-20261128` 브랜치의 `scripts/youtube_testset.py`다.
+세트 파일의 형식만 검사한다.
 
 ```bash
 python -m scripts.youtube_testset --set youtube_test/v1.json --check
+```
+
+세트 전체를 판정한다.
+CPU에서 약 30분 분량을 2 fps로 처리한다.
+
+```bash
 python -m scripts.youtube_testset --set youtube_test/v1.json --model mobilenet-crop-s44
+```
+
+일부만 판정할 수 있다.
+
+```bash
 python -m scripts.youtube_testset --set youtube_test/v1.json --model mobilenet-crop-s44 --overlap ood
+python -m scripts.youtube_testset --set youtube_test/v1.json --model mobilenet-crop-s44 --overlap in_training --overlap same_family
 python -m scripts.youtube_testset --set youtube_test/v1.json --model mobilenet-crop-s44 --person-group korean
 ```
 
-`report.md`에는 학습 관계별과 인물 그룹별 오탐률과 재현율이 따로 나온다.
+화면으로 보면서 영상 하나씩 시험하려면 웹 화면을 연다.
+서버는 이 PC 안에서만 열린다.
+
+```bash
+bash scripts/run_youtube_test.sh
+```
+
+브라우저에서 `http://127.0.0.1:17890`을 연다.
+
+## 결과 기록
+
+- 실행마다 `~/.local/share/ai-glasses-field-evaluation/youtube/<run_id>/`에 기록이 남는다.
+  - `run.json`: 입력과 모델 SHA256과 Git commit과 영상 정보와 구간 결과
+  - `run.log`: 실행 로그
+  - `frame-predictions.jsonl`: 프레임별 점수
+- 전체 이력은 같은 폴더의 `history.jsonl`에 쌓인다.
+- 세트 실행의 요약은 `sets/<세트>-<모델>-<시각>/report.md`와 `report.json`이다.
+- 요약에는 학습 관계별과 인물 그룹별 오탐률과 재현율이 따로 나온다.
+- 공유할 때는 `report.md`와 `report.json`만 `docs/experiments/results/`에 커밋한다.
+- 영상과 프레임과 모델 묶음은 커밋하지 않는다.
+
 `in_training`과 `same_family`의 결과를 처음 보는 제품의 성능으로 해석하지 않는다.
 온라인 영상의 결과는 실제 착용 평가와 합치지 않는다.
+판정 규칙은 구간의 프레임 점수 평균에 모델 묶음의 임계값을 적용하는 것이다.
+점수가 나온 프레임이 3개 미만이면 판정 보류로 센다.
 
 ## 세트를 늘리는 방법
 

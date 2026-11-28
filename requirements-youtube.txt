@@ -1,0 +1,6 @@
+# YouTube timeline tests on CPU. ffmpeg must also be installed (apt install ffmpeg).
+numpy>=1.24
+Pillow>=10
+opencv-python>=4.10
+onnxruntime>=1.17
+yt-dlp>=2025.1.1

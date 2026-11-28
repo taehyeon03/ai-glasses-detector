@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YouTube 타임라인 · 카메라 안경 테스트</title>
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --ink:#18202a; --muted:#5b6673; --line:#dde2e8;
+          --alarm:#b42318; --ok:#16704a; --hold:#9b6500; --accent:#2457c5; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:14px/1.5 "Noto Sans KR","Noto Sans CJK KR",system-ui,sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:16px 24px; border-bottom:1px solid var(--line); background:var(--card); }
+  header h1 { margin:0; font-size:19px; }
+  header p { margin:2px 0 0; color:var(--muted); font-size:13px; }
+  main { display:grid; grid-template-columns:360px 1fr; gap:16px; padding:16px 24px; align-items:start; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px; }
+  .card h2 { margin:0 0 10px; font-size:15px; }
+  label { display:block; font-size:12px; color:var(--muted); margin:10px 0 3px; }
+  input, select, textarea { width:100%; font:inherit; padding:7px 8px; border:1px solid var(--line); border-radius:6px; background:#fff; color:var(--ink); }
+  textarea { min-height:78px; resize:vertical; font-family:ui-monospace,monospace; font-size:13px; }
+  .row { display:flex; gap:8px; } .row > * { flex:1; }
+  button { margin-top:12px; width:100%; padding:9px; font:inherit; font-weight:600; border:0; border-radius:6px; background:var(--accent); color:#fff; cursor:pointer; }
+  button:disabled { opacity:.5; cursor:default; }
+  .hint { font-size:12px; color:var(--muted); margin-top:4px; }
+  .err { color:var(--alarm); font-size:13px; margin-top:8px; min-height:1em; }
+  .history { margin-top:16px; max-height:52vh; overflow:auto; }
+  .hist { padding:8px; border-radius:6px; cursor:pointer; border:1px solid transparent; }
+  .hist:hover { background:#f0f3f7; } .hist.sel { border-color:var(--accent); background:#eef3fd; }
+  .hist .t { font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .hist .m { font-size:12px; color:var(--muted); }
+  .badge { display:inline-block; padding:1px 7px; border-radius:10px; font-size:11px; font-weight:600; color:#fff; }
+  .b-completed { background:var(--ok); } .b-failed { background:var(--alarm); } .b-running { background:var(--hold); }
+  .detail { display:grid; gap:16px; }
+  .top { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(0,1fr); gap:16px; }
+  .player { aspect-ratio:16/9; width:100%; border:0; border-radius:6px; background:#111; }
+  .kv { display:grid; grid-template-columns:110px 1fr; gap:2px 8px; font-size:13px; }
+  .kv div:nth-child(odd) { color:var(--muted); }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th, td { text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); }
+  th { color:var(--muted); font-weight:500; }
+  td.num { font-variant-numeric:tabular-nums; }
+  .v-alarm { color:var(--alarm); font-weight:700; } .v-ok { color:var(--ok); font-weight:700; } .v-hold { color:var(--hold); font-weight:700; }
+  tr.seg { cursor:pointer; } tr.seg:hover { background:#f0f3f7; }
+  svg text { font-size:11px; fill:var(--muted); }
+  .frames { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:8px; }
+  .frames figure { margin:0; cursor:pointer; } .frames img { width:100%; border-radius:4px; display:block; }
+  .frames figcaption { font-size:11px; color:var(--muted); }
+  pre.log { background:#111820; color:#d6dee8; padding:10px; border-radius:6px; max-height:260px; overflow:auto; font-size:12px; margin:0; white-space:pre-wrap; }
+  .empty { color:var(--muted); padding:40px; text-align:center; }
+  .note { font-size:12px; color:var(--muted); margin-top:8px; }
+  @media (max-width:1000px) { main { grid-template-columns:1fr; } .top { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>YouTube 타임라인 · 카메라 안경 테스트</h1>
+  <p>학습한 모델을 고르고 영상 구간을 지정합니다. 영상은 저장하지 않고 스트리밍으로 판정합니다. 결과는 youtube_video 도메인으로 따로 기록합니다.</p>
+</header>
+<main>
+  <section>
+    <div class="card">
+      <h2>새 테스트</h2>
+      <label for="model">모델</label>
+      <select id="model"></select>
+      <label for="url">YouTube 주소</label>
+      <input id="url" placeholder="https://www.youtube.com/watch?v=...">
+      <label for="timeline">타임라인</label>
+      <textarea id="timeline" placeholder="0:12-0:20=ordinary&#10;1:05=camera&#10;2:30-2:45"></textarea>
+      <div class="hint">구간은 시작-끝, 한 시점은 앞뒤 2초. "=ordinary / camera / none" 으로 구간 정답을 붙입니다.</div>
+      <div class="row">
+        <div><label for="label">기본 정답</label>
+          <select id="label">
+            <option value="unknown">모름</option>
+            <option value="ordinary">일반 안경</option>
+            <option value="camera">카메라 안경</option>
+            <option value="none">안경 없음</option>
+          </select></div>
+        <div><label for="fps">초당 프레임</label><input id="fps" type="number" min="0.2" max="10" step="0.5" value="2"></div>
+      </div>
+      <label for="note">메모</label>
+      <input id="note" placeholder="예: Ray-Ban Meta 리뷰 영상, 정면 장면">
+      <label style="display:flex;gap:6px;align-items:center;color:var(--ink);font-size:13px">
+        <input id="save" type="checkbox" checked style="width:auto"> 판정 프레임 저장 (로컬 기록 폴더에만)
+      </label>
+      <button id="go">테스트 실행</button>
+      <div class="err" id="err"></div>
+    </div>
+    <div class="card history">
+      <h2>테스트 이력</h2>
+      <div id="hist"></div>
+    </div>
+  </section>
+  <section id="detail"><div class="card empty">왼쪽에서 테스트를 실행하거나 이력을 선택하세요.</div></section>
+</main>
+<script>
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = t => { t = +t; const m = Math.floor(t/60), s = (t%60).toFixed(1).padStart(4,"0"); return `${m}:${s}`; };
+const num = (v, d=3) => v == null ? "–" : (+v).toFixed(d);
+const pct = v => v == null ? "–" : (v*100).toFixed(0) + "%";
+const LABEL = {ordinary_glasses:"일반 안경", camera_glasses:"카메라 안경", no_glasses:"안경 없음", unknown:"모름"};
+const vclass = v => v === "카메라 안경 의심" ? "v-alarm" : v === "판정 보류" ? "v-hold" : "v-ok";
+let selected = null, active = null, timer = null;
+
+async function api(path, opts) {
+  const r = await fetch(path, opts); const kind = r.headers.get("content-type") || "";
+  const body = kind.includes("json") ? await r.json() : await r.text();
+  if (!r.ok) throw new Error(body.error || r.statusText); return body;
+}
+
+async function loadModels() {
+  const models = await api("/api/models");
+  $("#model").innerHTML = models.map(m => `<option value="${esc(m.id)}">${esc(m.display_name)} · 임계값 ${m.threshold}</option>`).join("")
+    || `<option value="">모델 묶음이 없습니다</option>`;
+}
+
+async function loadHistory() {
+  const data = await api("/api/runs"); active = data.active;
+  $("#go").disabled = !!active; $("#go").textContent = active ? "테스트 실행 중…" : "테스트 실행";
+  $("#hist").innerHTML = (active && !data.runs.some(r => r.run_id === active)
+      ? `<div class="hist ${selected===active?"sel":""}" data-id="${active}"><div class="t">실행 중</div><div class="m"><span class="badge b-running">running</span> ${active}</div></div>` : "")
+    + data.runs.map(r => {
+      const s = r.summary || {};
+      return `<div class="hist ${selected===r.run_id?"sel":""}" data-id="${esc(r.run_id)}">
+        <div class="t">${esc(r.title || r.url)}</div>
+        <div class="m"><span class="badge b-${esc(r.status)}">${esc(r.status)}</span>
+          ${esc(new Date(r.started_at).toLocaleString())} · ${esc(r.model || "")}
+          ${r.summary ? ` · 경보 ${s.n_alarm}/${s.n_segments}` : ""}</div></div>`;
+    }).join("") || (active ? "" : `<div class="m">아직 기록이 없습니다.</div>`);
+  document.querySelectorAll(".hist").forEach(el => el.onclick = () => select(el.dataset.id));
+}
+
+function chart(run, frames) {
+  const segs = run.segments || []; if (!frames.length) return "";
+  const W = 760, H = 180, L = 36, R = 10, T = 10, B = 26, thr = run.model?.threshold ?? .5;
+  const gap = 1.5; let offset = 0; const map = [];
+  segs.forEach(s => { map[s.index] = {s, x0: offset}; offset += (s.end - s.start) + gap; });
+  const span = Math.max(offset - gap, 1), x = (i, t) => L + (map[i].x0 + t - map[i].s.start) / span * (W-L-R);
+  const y = v => T + (1-v) * (H-T-B);
+  let g = `<line x1="${L}" x2="${W-R}" y1="${y(thr)}" y2="${y(thr)}" stroke="#b42318" stroke-dasharray="4 3"/>
+    <text x="${W-R}" y="${y(thr)-4}" text-anchor="end">임계값 ${thr}</text>`;
+  [0,.5,1].forEach(v => g += `<text x="${L-6}" y="${y(v)+4}" text-anchor="end">${v}</text><line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#eef0f3"/>`);
+  segs.forEach(s => { const a = x(s.index, s.start), b = x(s.index, s.end);
+    g += `<rect x="${a}" y="${T}" width="${b-a}" height="${H-T-B}" fill="#2457c5" opacity=".05"/>
+      <text x="${a}" y="${H-8}">${fmt(s.start)}</text>`; });
+  segs.forEach(s => {
+    const pts = frames.filter(f => f.segment_index === s.index && f.camera_probability != null);
+    if (pts.length > 1) g += `<polyline fill="none" stroke="#5b6673" stroke-width="1.2" points="${pts.map(f => `${x(s.index,f.t)},${y(f.camera_probability)}`).join(" ")}"/>`;
+  });
+  frames.forEach(f => {
+    if (!map[f.segment_index]) return;
+    const cx = x(f.segment_index, f.t);
+    g += f.camera_probability == null
+      ? `<circle cx="${cx}" cy="${y(0)}" r="3" fill="none" stroke="#9b6500" data-t="${f.t}"><title>${fmt(f.t)} · ${f.reason}</title></circle>`
+      : `<circle cx="${cx}" cy="${y(f.camera_probability)}" r="3.5" fill="${f.camera_probability>=thr?"#b42318":"#16704a"}" data-t="${f.t}" style="cursor:pointer"><title>${fmt(f.t)} · ${num(f.camera_probability)}</title></circle>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%">${g}</svg>
+    <div class="note">점 = 프레임 점수(초록 기준 미만, 빨강 이상, 빈 원 = 얼굴/안경 영역을 찾지 못함). 점을 누르면 그 시점으로 이동합니다. 점수는 보정된 확률이 아닙니다.</div>`;
+}
+
+function seek(t) {
+  const p = $("#player"); if (!p || !p.dataset.vid) return;
+  p.src = `https://www.youtube-nocookie.com/embed/${p.dataset.vid}?start=${Math.floor(t)}&autoplay=1`;
+}
+
+async function select(id) {
+  selected = id; clearTimeout(timer);
+  document.querySelectorAll(".hist").forEach(el => el.classList.toggle("sel", el.dataset.id === id));
+  let data, log;
+  try { [data, log] = await Promise.all([api(`/api/runs/${id}`), api(`/api/runs/${id}/log`)]); }
+  catch (e) { $("#detail").innerHTML = `<div class="card empty">${esc(e.message)}</div>`; return; }
+  const run = data.run, v = run.video || {}, s = run.summary || {};
+  const keepPlayer = $("#player") && $("#player").dataset.run === id;
+  const playerHTML = v.video_id
+    ? `<iframe id="player" class="player" data-run="${esc(id)}" data-vid="${esc(v.video_id)}" allow="autoplay; encrypted-media" allowfullscreen
+         src="https://www.youtube-nocookie.com/embed/${esc(v.video_id)}?start=${Math.floor(run.segments?.[0]?.start ?? 0)}"></iframe>`
+    : `<div class="player" style="display:grid;place-items:center;color:#aaa">영상 정보 없음</div>`;
+  const rows = (run.segments || []).map(g => `<tr class="seg" data-t="${g.start}">
+      <td>${g.index}</td><td>${fmt(g.start)} – ${fmt(g.end)}</td><td>${LABEL[g.label] || g.label}</td>
+      <td class="${vclass(g.verdict)}">${esc(g.verdict)}</td><td class="num">${num(g.mean_score)}</td><td class="num">${num(g.max_score)}</td>
+      <td class="num">${pct(g.alarm_frame_ratio)}</td><td class="num">${g.n_scored}/${g.n_frames}</td>
+      <td>${g.correct == null ? "–" : g.correct ? "일치" : "<b style='color:#b42318'>불일치</b>"}</td></tr>`).join("");
+  const imgs = data.frames.filter(f => f.frame_file).map(f => `<figure data-t="${f.t}">
+      <img loading="lazy" src="/api/runs/${esc(id)}/frames/${esc(f.frame_file)}" alt="">
+      <figcaption>${fmt(f.t)} · ${f.camera_probability == null ? esc(f.reason) : num(f.camera_probability)}</figcaption></figure>`).join("");
+  const detail = `
+    <div class="top">
+      <div class="card" id="playerCard">${keepPlayer ? "" : playerHTML}</div>
+      <div class="card">
+        <h2>${esc(v.title || run.input.url)} <span class="badge b-${esc(run.status)}">${esc(run.status)}</span></h2>
+        <div class="kv">
+          <div>실행 ID</div><div>${esc(run.run_id)}</div>
+          <div>모델</div><div>${esc(run.model?.display_name || "–")}</div>
+          <div>임계값</div><div>${run.model?.threshold ?? "–"} (평균 점수 기준, 판정 프레임 ≥ ${run.input.min_scored_frames})</div>
+          <div>채널</div><div>${esc(v.channel || "–")}</div>
+          <div>해상도</div><div>${v.width ? `${v.width}×${v.height}` : "–"} · ${run.input.fps} fps 샘플</div>
+          <div>시작</div><div>${esc(new Date(run.started_at).toLocaleString())}</div>
+          <div>Git</div><div>${esc((run.git_commit || "").slice(0,8))} ${esc(run.git_branch || "")}${run.git_dirty ? " (변경 있음)" : ""}</div>
+          <div>경보 구간</div><div>${s.n_alarm ?? "–"} / ${s.n_segments ?? "–"} (판정 ${s.n_decided ?? "–"})</div>
+          <div>오탐률</div><div>${s.false_positive_rate == null ? "–" : pct(s.false_positive_rate)} (일반 안경 구간 ${s.n_ordinary_labeled ?? 0})</div>
+          <div>재현율</div><div>${s.camera_recall == null ? "–" : pct(s.camera_recall)} (카메라 안경 구간 ${s.n_camera_labeled ?? 0})</div>
+          ${run.note ? `<div>메모</div><div>${esc(run.note)}</div>` : ""}
+          ${run.error ? `<div>오류</div><div style="color:#b42318">${esc(run.error)}</div>` : ""}
+        </div>
+        <div class="note">온라인 영상 결과는 실제 착용 평가(real_worn)와 합치지 않습니다. 촬영 중이라는 판단은 하지 않습니다.</div>
+      </div>
+    </div>
+    <div class="card"><h2>구간별 판정</h2>
+      <table><thead><tr><th>#</th><th>구간</th><th>정답</th><th>판정</th><th>평균</th><th>최대</th><th>경보 프레임</th><th>판정 프레임</th><th>정답 비교</th></tr></thead>
+      <tbody>${rows || `<tr><td colspan="9" class="m">아직 구간 결과가 없습니다.</td></tr>`}</tbody></table></div>
+    <div class="card"><h2>점수 타임라인</h2>${chart(run, data.frames) || `<div class="m">프레임 결과가 없습니다.</div>`}</div>
+    ${imgs ? `<div class="card"><h2>판정 프레임 (초록 상자 = 모델 입력용 안경 영역 추정치)</h2><div class="frames">${imgs}</div></div>` : ""}
+    <div class="card"><h2>실행 로그</h2><pre class="log" id="log">${esc(log)}</pre></div>`;
+  const player = keepPlayer ? $("#player") : null;
+  $("#detail").innerHTML = `<div class="detail">${detail}</div>`;
+  if (player) $("#playerCard").appendChild(player);
+  const lg = $("#log"); lg.scrollTop = lg.scrollHeight;
+  document.querySelectorAll("[data-t]").forEach(el => { if (el.tagName !== "DIV") el.onclick = () => seek(+el.dataset.t); });
+  if (run.status === "running") timer = setTimeout(() => { loadHistory(); select(id); }, 1500);
+  else loadHistory();
+}
+
+$("#go").onclick = async () => {
+  $("#err").textContent = "";
+  try {
+    const { run_id } = await api("/api/runs", { method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ model: $("#model").value, url: $("#url").value, timeline: $("#timeline").value,
+        label: $("#label").value, fps: +$("#fps").value, note: $("#note").value, save_frames: $("#save").checked }) });
+    await loadHistory(); setTimeout(() => select(run_id), 400);
+  } catch (e) { $("#err").textContent = e.message; }
+};
+
+loadModels().then(loadHistory).catch(e => $("#err").textContent = e.message);
+setInterval(() => { if (!selected || active) loadHistory(); }, 4000);
+</script>
+</body>
+</html>
